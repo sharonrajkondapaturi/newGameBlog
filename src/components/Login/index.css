@@ -1,0 +1,61 @@
+.background{
+    background-image:url("https://www.pixel4k.com/wp-content/uploads/2018/09/dark-souls-3-2016-video-game_1535967754.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+}
+h1{
+    text-align: center;
+    font-size:2rem;
+    font-family: cursive;
+}
+form{
+    background-color:transparent;
+    border-radius:15px;
+    height:350px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    padding:40px;
+    border:1px solid #000;
+}
+label{
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: cursive;
+    font-size:18px;
+}
+input{
+    width:400px;
+    height:15px;
+    padding: 8px;
+    border-radius:10px;
+    border:none;
+    margin-bottom: 20px;;
+}
+button{
+    width:100px;
+    background-color: #3b64d4;
+    border-radius:10px;
+    border:none;
+    color:#fff;
+    padding:8px;
+    font-weight: bold;
+    transition:1s;
+    cursor:pointer;
+}
+button:hover{
+    background-color: #f0163e;
+}
+a{
+    font-weight:bold;
+    text-align: center;
+    transition: 1s;
+    cursor:pointer;
+}
+a:hover{
+    color: #f0163e;
+}

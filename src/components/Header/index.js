@@ -4,10 +4,16 @@ import './index.css'
 
 const Header = ()=>{
     const [ham,setHam] = useState(false)
+    const [login,setlogin] = useState(false)
 
     const onHam = ()=>{
         setHam(prevState=>!prevState)
     }
+
+    const onLogin = () => {
+        setlogin(prevState=>!prevState)
+    }
+    
     return(
         <header>
             <nav className="ham" onClick={onHam}>
@@ -32,13 +38,13 @@ const Header = ()=>{
             <nav>
                 <ul>
                     <li><a href="www.google.com">UserDetails</a></li>
-                    <li><button>Logout</button></li>
+                    <li><button onClick={onLogin}>Login</button></li>
                 </ul>
             </nav>
             <nav className='mobile-nav'>
                 <ul className='mobile-right'>
                 <li><a href="www.google.com">UserDetails</a></li>
-                <li><button className='mobile-button'>Logout</button></li>
+                <li><button className='mobile-button'>Login</button></li>
                 </ul>
             </nav>
         </header>
