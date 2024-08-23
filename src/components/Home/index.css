@@ -14,54 +14,30 @@ p{
     margin-top: 70px;
     height:550px;
 }
-.section-even{
-    background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color:#000;
-    height:550px;
-}
-
-.odd-img{
-    height:458px;
-    width:458px;
-    border-radius: 15px;
-    transition: 1s;
-    cursor:pointer;
-    animation: slideRight 2s;
-    margin-left:50px;
-}
-.even-img{
+img{
     height:458px;
     width:458px;
     border-radius:15px;
     transition: 1s;
     cursor:pointer;
     animation: slideLeft 2s;
-    margin-left:40px;
-}
-.even-article{
-    margin-right:50px;
-    animation: slideLeft;
-}
-.odd-article{
-    margin-right:50px;
     margin-left:50px;
+    margin-right: 50px;
 }
-.odd-img:hover{
+img:hover{
     width:470px;
     height:470px;
-    margin-left: 50px;
-    margin-right: 50px;
+}
+article{
+    margin-right:50px;
+    animation: slideRight;
 }
 @keyframes slideRight {
     from{
-        margin-left: 0px;
+        margin-right: 0px;
     }
     to{
-        margin-left: 50px;
+        margin-right: 50px;
     }
 }
 @keyframes slideLeft {
@@ -70,5 +46,50 @@ p{
     }
     to{
         margin-right: 50px;
+    }
+}
+.section-even{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color:#000;
+    height:550px;
+}
+.even-img{
+    height:458px;
+    width:458px;
+    border-radius: 15px;
+    transition: 1s;
+    cursor:pointer;
+    animation: slideEvenRight 1s;
+    margin-right:50px;
+    margin-left: 50px;
+}
+.even-img:hover{
+    width:470px;
+    height:470px;
+}
+.even-article{
+    margin-left: 50px;
+    animation: slideEvenLeft 2s;
+}
+@keyframes slideEvenLeft {
+    from{
+        margin-left: 0px;
+    }
+    to{
+        margin-left:50px;
+    }
+}
+@keyframes slideEvenRight {
+    from{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    to{
+        margin-right:50px;
+        margin-left:50px;
     }
 }
