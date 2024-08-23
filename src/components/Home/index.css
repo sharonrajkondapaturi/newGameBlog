@@ -1,11 +1,74 @@
-.ele{
-    color:red;
+h1{
+    font-size: 52px;
 }
-.background{
-    background-color: green;
+p{
+    font-size:18.5px;
 }
-@media screen and (max-width:575px) {
-    .ele{
-        color:aqua;
+.section-odd{
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    margin-top: 70px;
+    height:550px;
+}
+.section-even{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:#000;
+    height:550px;
+}
+
+.odd-img{
+    height:458px;
+    width:458px;
+    border-radius: 15px;
+    transition: 1s;
+    cursor:pointer;
+    animation: slideRight 2s;
+    margin-left:50px;
+}
+.even-img{
+    height:458px;
+    width:458px;
+    border-radius:15px;
+    transition: 1s;
+    cursor:pointer;
+    animation: slideLeft 2s;
+    margin-left:40px;
+}
+.even-article{
+    margin-right:50px;
+    animation: slideLeft;
+}
+.odd-article{
+    margin-right:50px;
+    margin-left:50px;
+}
+.odd-img:hover{
+    width:470px;
+    height:470px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+@keyframes slideRight {
+    from{
+        margin-left: 0px;
+    }
+    to{
+        margin-left: 50px;
+    }
+}
+@keyframes slideLeft {
+    from{
+        margin-right: 0px;
+    }
+    to{
+        margin-right: 50px;
     }
 }
