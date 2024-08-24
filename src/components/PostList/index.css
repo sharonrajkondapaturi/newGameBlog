@@ -26,6 +26,10 @@
 .post-article{
     width:500px;
     color:#000;
+    transition: 1s;
+}
+.post-article:hover{
+    transform: translateX(10px);
 }
 .delete-button{
     text-align: center;
