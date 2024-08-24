@@ -8,7 +8,7 @@
     background-color: #fff;
     margin-top:100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding:10px;
 }
 .post-input{

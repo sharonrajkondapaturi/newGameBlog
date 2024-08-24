@@ -2,6 +2,8 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './components/Home/'
 import Login from './components/Login'
 import Posts from './components/Posts'
+import UserPosts from './components/UserPosts';
+import Blog from './components/Blog';
 import './App.css';
 
 const App = ()=>(
@@ -10,6 +12,8 @@ const App = ()=>(
     <Route path="/" element={<Home/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/posts" element={<Posts/>}/>
+    <Route path="/userposts" element={<UserPosts/>}/>
+    <Route path="/posts/:id" element={<Blog/>} />
   </Routes>
   </BrowserRouter>
 )

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Cookies from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import './index.css'
@@ -12,6 +13,10 @@ const Header = ()=>{
     }
 
     const onLogin = () => {
+        navigate('/login')
+    }
+    const onLogout = () => {
+        Cookies.remove('jwt_token')
         navigate('/login')
     }
     
@@ -32,7 +37,7 @@ const Header = ()=>{
                 <ul>
                     <li><a href="http://localhost:3000/">Home</a></li>
                     <li><a href="http://localhost:3000/posts">Posts</a></li>
-                    <li><a href="www.google.com">User Posts</a></li>
+                    <li><a href="http://localhost:3000/userposts">User Posts</a></li>
                     <li><a href="www.google.com">About</a></li>
                 </ul>
             </nav>
@@ -40,6 +45,7 @@ const Header = ()=>{
                 <ul>
                     <li><a href="www.google.com">UserDetails</a></li>
                     <li><button onClick={onLogin}>Login</button></li>
+                    <li><button onClick={onLogout}>Logout</button></li>
                 </ul>
             </nav>
             <nav className='mobile-nav'>

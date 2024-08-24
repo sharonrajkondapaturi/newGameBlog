@@ -1,0 +1,28 @@
+.blog{
+    display:flex;
+    flex-direction: column;
+    min-height:100vh;
+}
+.blog-section{
+    margin-top:80px;
+    padding:40px;
+}
+.blog-img{
+    width:500px;
+    height:300px;
+    transition:1s;
+    cursor:pointer;
+}
+.blog-img:hover{
+    width:520px;
+    height:320px;
+    border-radius:15px;
+}
+.blog-title{
+    font-size: 35px;
+    font-family:cursive;
+}
+.blog-para{
+    font-size: 18px;
+    line-height: 30px;
+}

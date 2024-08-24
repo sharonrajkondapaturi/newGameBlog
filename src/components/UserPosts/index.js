@@ -13,7 +13,7 @@ const apiStatus = {
     failure:"FAILURE"
 }
 
-const Posts = ()=>{
+const UserPosts = ()=>{
     const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
     const [title,setTitle] = useState('')
     const [postDetails,setPost] = useState([])
@@ -25,7 +25,7 @@ const Posts = ()=>{
 
     const onRender = async()=>{
         setApiStatus(apiStatus.loading)
-        const postApiurl = `https://sharongameblog.onrender.com/posts/?title=${title}&genre=${genre}`
+        const postApiurl = `https://sharongameblog.onrender.com/userAuthenticatePosts/?title=${title}&genre=${genre}`
         const jwtToken = Cookies.get('jwt_token')
         const config = {
             headers: {Authorization:`Bearer ${jwtToken}`}
@@ -56,9 +56,7 @@ const Posts = ()=>{
     }
 
     const onRenderLoading = ()=>(
-        <center style={{marginTop:100}}>
-            <ThreeDots visible={true} height="80" width="80"/>
-        </center>
+        <ThreeDots visible={true} height="80" width="80"/>
     )
 
     const onRenderSuccess = () => (
@@ -155,4 +153,4 @@ return(
 )
 }
 
-export default Posts
+export default UserPosts

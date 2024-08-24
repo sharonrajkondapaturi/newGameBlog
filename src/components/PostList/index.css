@@ -7,9 +7,11 @@
     width:900px;
     cursor:pointer;
     padding-left:40px;
+    text-decoration: none;
 }
 .post-title{
     font-size:20px;
+    color: #000;
 }
 .post-image{
     height:220px;
@@ -23,4 +25,5 @@
 }
 .post-article{
     width:500px;
+    color:#000;
 }
