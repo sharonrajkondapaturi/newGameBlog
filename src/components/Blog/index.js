@@ -2,6 +2,9 @@ import {useState,useEffect} from 'react'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { FaCircleUser } from "react-icons/fa6";
+import { CiCalendarDate } from "react-icons/ci";
+import { FaRegClock } from "react-icons/fa";
 import Header from '../Header'
 import './index.css'
 
@@ -14,20 +17,19 @@ const Blog = () => {
         const config = {
             headers: {Authorization:`Bearer ${jwtToken}`}
         }
-        const response = await axios.get(postApiurl,jwtToken)
-        const postDetails = response.data.map(eachResponse=>({
-            id:eachResponse.id,
-            userId:eachResponse.user_id,
-            title:eachResponse.title,
-            genre:eachResponse.genre,
-            imageUrl:eachResponse.image_url,
-            content:eachResponse.content,
-            video_url:eachResponse.video_url,
-            publishedBy:eachResponse.published_by,
-            publishedDate:eachResponse.published_date,
-            publishedTime:eachResponse.published_time,
-            company:eachResponse.company,
-            officialWebsite:eachResponse.official_website
+
+    const response = await axios.get(postApiurl,config)
+    const postDetails = response.data.map(eachResponse=>({
+        title:eachResponse.title,
+        genre:eachResponse.genre,
+        imageUrl:eachResponse.image_url,
+        content:eachResponse.content,
+        videoUrl:eachResponse.video_url,
+        publishedBy:eachResponse.published_by,
+        publishedDate:eachResponse.published_date,
+        publishedTime:eachResponse.published_time,
+        company:eachResponse.company,
+        officialWebsite:eachResponse.official_website
     }))
     setPost(...postDetails)
 }
@@ -44,6 +46,18 @@ const Blog = () => {
                 <img src={post.imageUrl} alt={post.title} className='blog-img'/>
                 <h1 className='blog-title'>{post.title}</h1>
                 </center>
+                <article className='blog-details'>
+                    <FaCircleUser size={30} style={{paddingRight:10,paddingBottom:10}}/>
+                    <span>{post.publishedBy}</span>
+                </article>
+                <article className='blog-details'>
+                    <CiCalendarDate size={30} style={{paddingRight:10,paddingBottom:10}}/>
+                    <span>{post.publishedDate}</span>
+                </article>
+                <article className='blog-details'>
+                    <FaRegClock size={30} style={{paddingRight:10,paddingBottom:10}}/>
+                    <span>{post.publishedTime}</span>
+                </article>
                 <p className='blog-para'>{post.content}</p>
             </section>
 

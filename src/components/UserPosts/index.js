@@ -63,7 +63,7 @@ const UserPosts = ()=>{
         <div className='main-content'>
             <ul className='post-unlist'>
             {postDetails.map(eachPost=>
-                <PostList key={eachPost.id} posts={eachPost}/>
+                <PostList key={eachPost.id} posts={eachPost} access={true}/>
             )}
         </ul>
             <aside>

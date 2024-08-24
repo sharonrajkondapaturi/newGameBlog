@@ -27,3 +27,18 @@
     width:500px;
     color:#000;
 }
+.delete-button{
+    text-align: center;
+}
+.delete-button:hover{
+    background-color:#f00c0c;
+    transform: translate(10px,10px);
+}
+.edit-button{
+    text-align: center;
+    margin-right:10px;
+}
+.edit-button:hover{
+    background-color: #2fb559;
+    transform: translate(10px,10px);
+}

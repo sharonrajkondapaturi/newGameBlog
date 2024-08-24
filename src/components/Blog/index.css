@@ -2,6 +2,16 @@
     display:flex;
     flex-direction: column;
     min-height:100vh;
+    animation:slideBlog 2s;
+    transition: 1s;
+}
+@keyframes slideBlog {
+    0%{
+        width:0vw;
+    }
+    100%{
+        width:100vw;
+    }
 }
 .blog-section{
     margin-top:80px;
@@ -25,4 +35,17 @@
 .blog-para{
     font-size: 18px;
     line-height: 30px;
+}
+.blog-details{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family:cursive;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 1s;
+    cursor:pointer;
+}
+.blog-details:hover{
+    transform: translateX(10px);
 }
