@@ -1,0 +1,26 @@
+.post-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    margin-bottom:35px;
+    width:900px;
+    cursor:pointer;
+    padding-left:40px;
+}
+.post-title{
+    font-size:20px;
+}
+.post-image{
+    height:220px;
+    width:400px;
+    border-radius:10px;
+    margin-right:20px;
+    transition:1s;
+}
+.post-image:hover{
+    transform: translateX(15px);
+}
+.post-article{
+    width:500px;
+}

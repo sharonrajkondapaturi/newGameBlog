@@ -17,6 +17,7 @@ const Home = ()=>{
         setApiStatus(apiStatus.loading)
         setApiStatus(apiStatus.success)
     }
+    
     const onRenderLoading = ()=>(
     <center style={{marginTop:100}}>
         <ThreeDots visible={true} height="80" width="80"/>
@@ -29,9 +30,10 @@ const onRenderSuccess = () =>(
     <aside>
         <img src="https://i.blogs.es/b06eda/bo300/1366_2000.jpg" 
         alt="call-of-duty" 
+        className='odd-img'
         />
     </aside>
-    <article>
+    <article className='odd-article'>
         <h1>Experience the war Zone</h1>
         <p>Call of duty Black ops 3 has Muliplayer options</p>
     </article>
@@ -51,9 +53,10 @@ const onRenderSuccess = () =>(
     <aside>
         <img src="https://m.economictimes.com/thumb/height-450,width-600,imgsize-45140,msid-104388013/marvels-spider-man-2-set-to-release-soon-heres-all-you-need-to-know.jpg" 
         alt="marvel-spiderman"
+        className='odd-img'
         />
     </aside>
-    <article>
+    <article className='odd-article'>
         <h1>Swing over the city of New York and many cities</h1>
         <p>Peter Parker and Spiderman will save the neighbourhood</p>
     </article>

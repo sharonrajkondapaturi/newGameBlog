@@ -54,11 +54,11 @@ const Login = ()=>{
         <div className='background'>
         <Header/>
             <form onSubmit={onVerify}>
-                <h1>Login</h1>
+                <h1 className='login-head'>Login</h1>
                 <label htmlFor='username'>Username</label>
-                <input id="username" type="text" placeholder="Enter username" onChange={onUser} value={username}/>
+                <input id="username" type="text" placeholder="Enter username" onChange={onUser} value={username} className='login-input'/>
                 <label htmlFor='password'>password</label>
-                <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password}/>
+                <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='login-input'/>
                 <center>
                 <button type="submit">Login</button>
                 </center>

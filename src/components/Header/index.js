@@ -22,7 +22,7 @@ const Header = ()=>{
                 {
                 ham?<ul className='mobile-ham'>
                     <li><a href="http://localhost:3000/login" className='mobile-anchors'>Home</a></li>
-                    <li><a href="www.google.com" className='mobile-anchors'>Posts</a></li>
+                    <li><a href="http://localhost:3000/posts" className='mobile-anchors'>Posts</a></li>
                     <li><a href="www.google.com" className='mobile-anchors'>User Posts</a></li>
                     <li><a href="www.google.com" className='mobile-anchors'>About</a></li>
                 </ul>:null
@@ -31,7 +31,7 @@ const Header = ()=>{
             <nav>
                 <ul>
                     <li><a href="http://localhost:3000/">Home</a></li>
-                    <li><a href="www.google.com">Posts</a></li>
+                    <li><a href="http://localhost:3000/posts">Posts</a></li>
                     <li><a href="www.google.com">User Posts</a></li>
                     <li><a href="www.google.com">About</a></li>
                 </ul>

@@ -7,7 +7,7 @@
     align-items: center;
     min-height:100vh;
 }
-h1{
+.login-head{
     text-align: center;
     font-size:2rem;
     font-family: cursive;
@@ -28,7 +28,7 @@ label{
     font-family: cursive;
     font-size:18px;
 }
-input{
+.login-input{
     width:400px;
     height:15px;
     padding: 8px;

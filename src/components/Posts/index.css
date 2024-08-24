@@ -1,0 +1,21 @@
+.post-background{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+}
+.input-section{
+    height:200px;
+    background-color: #fff;
+    margin-top:100px;
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+}
+.post-input{
+    border:#fff;
+}
+.post-unlist{
+    padding:0px;
+    display: flex;
+    flex-direction: column;
+}

@@ -14,7 +14,7 @@ p{
     margin-top: 70px;
     height:550px;
 }
-img{
+.odd-img{
     height:458px;
     width:458px;
     border-radius:15px;
@@ -24,11 +24,11 @@ img{
     margin-left:50px;
     margin-right: 50px;
 }
-img:hover{
+.odd-img:hover{
     width:470px;
     height:470px;
 }
-article{
+.odd-article{
     margin-right:50px;
     animation: slideRight;
 }
