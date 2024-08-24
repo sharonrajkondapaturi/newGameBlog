@@ -15,7 +15,7 @@ h1{
 form{
     background-color:transparent;
     border-radius:15px;
-    height:350px;
+    height:380px;
     width: 450px;
     display: flex;
     flex-direction: column;
@@ -50,12 +50,18 @@ button{
 button:hover{
     background-color: #f0163e;
 }
-a{
+.blink{
     font-weight:bold;
     text-align: center;
     transition: 1s;
     cursor:pointer;
 }
-a:hover{
+.blink:hover{
+    color: #f0163e;
+}
+.error{
+    font-weight:bold;
+    text-align: center;
+    margin:10px;
     color: #f0163e;
 }
