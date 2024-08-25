@@ -6,6 +6,7 @@ import axios from 'axios'
 import Header from '../Header'
 import './index.css'
 
+//used to register for the new user
 const Register = ()=>{
     const [username,setname] = useState('')
     const [password,setpassword] = useState('')
@@ -13,12 +14,14 @@ const Register = ()=>{
     const [error,setError] = useState('')
     const [loading,setLoading] = useState(false)
     const navigate = useNavigate()
-
+  
+    //status is successfull it will be redirected to posts
     const onSuccess = jwtToken =>{
         Cookies.set('jwt_token',jwtToken,{expires:30})
         navigate('/posts')
     }
-
+   
+    //after submitting it validates the new user credentials
     const onCredentials = async(event) =>{
         event.preventDefault()
         const userDetails = {
@@ -81,7 +84,7 @@ const Register = ()=>{
                 <label htmlFor='confirmpassword'>Confirm Password</label>
                 <input id = "confirmpassword" type="password" placeholder='Enter password' onChange={onConfirm} value={confirmPassword} className='login-input'/>
                 <center>
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
                 </center>
                 {loading?onLoading():null}
                 {error===''?null:<p className='error'>{error}</p>}
