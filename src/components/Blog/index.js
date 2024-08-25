@@ -60,6 +60,10 @@ const Blog = () => {
                     <FaRegClock size={30} style={{paddingRight:10,paddingBottom:10}}/>
                     <span>{post.publishedTime}</span>
                 </article>
+                <article className='blog-details'>
+                    <span style={{paddingRight:10}}>Genre:</span>
+                    <span> {post.genre}</span>
+                </article>
                 <p className='blog-para'>{post.content}</p>
             </section>
 
