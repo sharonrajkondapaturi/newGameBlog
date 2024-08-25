@@ -28,6 +28,7 @@ const PostList = props =>{
         }
         await axios.delete(deletePostApiUrl,config)
         window.location.reload()
+        navigate('/posts')
     }
     
     //used to edit the post
