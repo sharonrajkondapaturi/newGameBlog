@@ -27,7 +27,6 @@ const PostList = props =>{
             headers: {Authorization:`Bearer ${jwtToken}`} 
         }
         await axios.delete(deletePostApiUrl,config)
-        window.location.reload()
         navigate('/posts')
     }
     
