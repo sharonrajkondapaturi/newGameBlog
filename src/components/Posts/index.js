@@ -6,6 +6,7 @@ import Header from '../Header'
 import PostList from '../PostList'
 import './index.css'
 
+//to know the current apiStatus
 const apiStatus = {
     initial:"INITIAL",
     loading:"LOADING",
@@ -13,6 +14,7 @@ const apiStatus = {
     failure:"FAILURE"
 }
 
+//used to fetch the post the api with the help axios
 const Posts = ()=>{
     const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
     const [title,setTitle] = useState('')
@@ -54,13 +56,15 @@ const Posts = ()=>{
             setApiStatus(apiStatus.failure)
         }
     }
-
+   
+    //dispaly Loading
     const onRenderLoading = ()=>(
         <center style={{marginTop:100}}>
             <ThreeDots visible={true} height="80" width="80"/>
         </center>
     )
-
+   
+    //when it successfully fetched it will display the list of post
     const onRenderSuccess = () => (
         <div className='main-content'>
             <ul className='post-unlist'>
@@ -70,10 +74,12 @@ const Posts = ()=>{
         </ul>
         </div>
     )
-
+   
+    //when the api fails to fetch it display failure view
     const onRenderFailure = () => (
         <>
-        <h1>Failure</h1>
+        <img style={{width:320,height:320}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcKcoquPvJ-O9WfgEYiUF34hYhzaGcrtamQ&s" alt="failure-image"/>
+        <button onClick={onRender}>Retry</button>
         </>
     )
 
