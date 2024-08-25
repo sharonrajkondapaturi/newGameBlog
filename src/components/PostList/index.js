@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import './index.css'
 
+//Used to display the list of post
 const PostList = props =>{
     const {posts,access} = props
     const {id,title,imageUrl,publishedBy,publishedDate,content,videoUrl,genre,officialWebsite} = posts
@@ -13,10 +14,12 @@ const PostList = props =>{
     }
     const navigate = useNavigate()
     
+    //redirect's to the blog details
     const onRedirect = () =>{
         navigate(`/posts/${id}`)
     }
-
+   
+    //Delete Post
     const onDelete = async() => {
         const deletePostApiUrl = `https://sharongameblog.onrender.com/posts/${id}`
         const jwtToken = Cookies.get('jwt_token')
@@ -26,7 +29,8 @@ const PostList = props =>{
         await axios.delete(deletePostApiUrl,config)
         window.location.reload()
     }
-
+    
+    //used to edit the post
     const onEdit = () =>{
         navigate(`editpost/${id}`)
     }
