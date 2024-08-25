@@ -5,6 +5,7 @@ import {useNavigate,useLocation,useParams} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
 
+//To Edit the blog
 const EditPost = ()=>{
     const [title,setTitle] = useState('')
     const [content,setContent] = useState('')
@@ -34,6 +35,8 @@ const EditPost = ()=>{
         await axios.put(postApiurl,postData,config)
         navigate('/userposts')
     }
+
+    //Below aere triggered while editing the blog
 
     const onTitle = event => {
         setTitle(event.target.value)
