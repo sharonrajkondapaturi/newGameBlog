@@ -31,36 +31,39 @@ there are eleven components
 11->ProtectedRoutes
 
 ###Login
-this components is used for logging the user credentials for authnetication
+-> This components is used for logging the user credentials for authnetication
 
 ###Register
-this components is used for registering the new user in DataBase 
+-> This components is used for registering the new user in DataBase 
 
 ###Header
-this components contains to add post, login, logout, check the posts
+-> This components contains to add post, login, logout, check the posts
 
 ###Home
-this Home component is used to display the attractive images of the plog post with the help of animation
+-> This Home component is used to display the attractive images of the plog post with the help of animation
 
 ###Posts
-this component is used to render the post details of the Deployed Backend Api
+-> This component is used to render the post details of the Deployed Backend Api
 
 ###PostList 
-after rendering (Posts) the post list components will have list of posts by click the post it will redirect the entire blog
+-> After rendering (Posts) the post list components will have list of posts by click the post it will redirect the entire blog
 
 ###Blog
-The blog contains the entire information of the data
+-> The blog contains the entire information of the data
 
 ###UserPost 
-the userPost contains the user created post which he can edit and delte the post which is allowed for authorized user's
+-> The userPost contains the user created post which he can edit and delte the post which is allowed for authorized user's
 
 ###NewPost 
-this components is used to create a new post 
+-> This components is used to create a new post 
 
 ###EditPost
-this components is used to edit the post
+-> This components is used to edit the post
 
-###ProtectRoutes were used only if the user is logged in the jwttoken stores in cookie with the help of js-cookie package only then it will redirected userPosts to add and delete
+###ProtectRoutes 
+-> It is used only if the user is logged in the jwttoken stores in cookie with the help of js-cookie package only then it will redirected userPosts to add and delete
+
+future deployment adding comments to the posts and make the media queries more attractive
 
 
 
