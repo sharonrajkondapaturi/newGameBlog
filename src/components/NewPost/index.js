@@ -75,6 +75,7 @@ const NewPost = ()=>{
                 <option value="Adventure">Adventure</option>
                 <option value="Racing">Racing</option>
                 <option value="Action-Adventure-Stealth">Action-Adventure-Stealth</option>
+                <option value="Survival Horror">Survival Horror</option>
             </select>
             <label htmlFor='content' style={{marginTop:10}}>Content</label>
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
