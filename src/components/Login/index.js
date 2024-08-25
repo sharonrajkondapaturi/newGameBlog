@@ -6,6 +6,7 @@ import axios from 'axios'
 import Header from '../Header'
 import './index.css'
 
+//used to login with correct credentials
 const Login = ()=>{
     const [username,setname] = useState('')
     const [password,setpassword] = useState('')
@@ -13,18 +14,21 @@ const Login = ()=>{
     const [loading,setLoading] = useState(false)
     const navigate = useNavigate()
 
+    //below were triggered when the user enter the credentials
     const onUser = (event)=>{
         setname(event.target.value)
     }
     const onPassword = (event)=>{
         setpassword(event.target.value)
     }
-
+    
+    //credentials were matched it will redirect to posts page
     const onSuccess = jwtToken =>{
         Cookies.set('jwt_token',jwtToken,{expires:30})
         navigate('/posts')
     }
-
+   
+    //verify the user when the click login
     const onVerify = async(event)=>{
         event.preventDefault()
         const userDetails = {
