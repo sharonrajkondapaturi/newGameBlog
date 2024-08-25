@@ -6,6 +6,7 @@ import Header from '../Header'
 import PostList from '../PostList'
 import './index.css'
 
+//check the api statsus
 const apiStatus = {
     initial:"INITIAL",
     loading:"LOADING",
@@ -13,6 +14,7 @@ const apiStatus = {
     failure:"FAILURE"
 }
 
+//used to display UserPosts
 const UserPosts = ()=>{
     const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
     const [postDetails,setPost] = useState([])
@@ -48,11 +50,14 @@ const UserPosts = ()=>{
             setApiStatus(apiStatus.failure)
         }
     }
-
+   
+    //Loading Status
     const onRenderLoading = ()=>(
         <ThreeDots visible={true} height="80" width="80"/>
     )
+  
 
+    //When the data is successfully fetched
     const onRenderSuccess = () => (
         <div className='main-content'>
             {
@@ -64,11 +69,13 @@ const UserPosts = ()=>{
             </ul>:<h1>Add New Post</h1>
             }
         </div>
-    )
+    ) 
 
+    //Failure view when it fails to fetch the data
     const onRenderFailure = () => (
         <>
-        <h1>Failure</h1>
+        <img style={{width:320,height:320}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcKcoquPvJ-O9WfgEYiUF34hYhzaGcrtamQ&s" alt="failure-image"/>
+        <button onClick={onRender}>Retry</button>
         </>
     )
 
