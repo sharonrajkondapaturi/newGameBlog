@@ -8,6 +8,7 @@ import { FaRegClock } from "react-icons/fa";
 import Header from '../Header'
 import './index.css'
 
+//Display The Blog
 const Blog = () => {
     const [post,setPost] = useState([])
     const {id} = useParams()
