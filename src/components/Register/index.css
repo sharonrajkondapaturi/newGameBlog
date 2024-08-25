@@ -12,10 +12,10 @@
     font-size:2rem;
     font-family: cursive;
 }
-.login-form{
+.register-form{
     background-color:transparent;
     border-radius:15px;
-    height:380px;
+    height:500px;
     width: 450px;
     display: flex;
     flex-direction: column;

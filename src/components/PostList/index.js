@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import { MdDelete } from "react-icons/md";
@@ -7,20 +7,23 @@ import './index.css'
 
 const PostList = props =>{
     const {posts,access} = props
-    const {id,title,imageUrl,publishedBy,publishedDate} = posts
+    const {id,title,imageUrl,publishedBy,publishedDate,content,videoUrl,genre,officialWebsite} = posts
+    const postData = {
+        id,title,imageUrl,content,videoUrl,genre,officialWebsite
+    }
     const navigate = useNavigate()
     
     const onRedirect = () =>{
         navigate(`/posts/${id}`)
     }
 
-    const onDelete = () => {
+    const onDelete = async() => {
         const deletePostApiUrl = `https://sharongameblog.onrender.com/posts/${id}`
         const jwtToken = Cookies.get('jwt_token')
         const config = {
             headers: {Authorization:`Bearer ${jwtToken}`} 
         }
-        axios.delete(deletePostApiUrl,config)
+        await axios.delete(deletePostApiUrl,config)
         window.location.reload()
     }
 
@@ -29,8 +32,8 @@ const PostList = props =>{
     }
 
     return(
-        <li className='post-list' onClick={onRedirect}>
-            <aside >
+        <li className='post-list'>
+            <aside onClick={onRedirect}>
             <img src={imageUrl} alt={title} className='post-image'/>
             </aside>
             <article className='post-article'>
@@ -39,10 +42,12 @@ const PostList = props =>{
                 <p>PublishedDate: {publishedDate}</p>
                 {access?(
                 <article>
+                    <Link to= {`/editpost/${id}`} state={postData} style={{textDecoration:"none"}}>
                     <button type="button" className='edit-button' onClick={onEdit} >
                         <FaEdit/>
                         Edit
                     </button>
+                    </Link>
                     <button type="button" className='delete-button' onClick={onDelete}>
                         <MdDelete/>
                         Delete

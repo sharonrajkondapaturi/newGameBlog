@@ -53,7 +53,7 @@ const Login = ()=>{
     return(
         <div className='background'>
         <Header/>
-            <form onSubmit={onVerify}>
+            <form className="login-form" onSubmit={onVerify}>
                 <h1 className='login-head'>Login</h1>
                 <label htmlFor='username'>Username</label>
                 <input id="username" type="text" placeholder="Enter username" onChange={onUser} value={username} className='login-input'/>

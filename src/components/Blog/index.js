@@ -36,6 +36,7 @@ const Blog = () => {
 
     useEffect(()=>{
         onRender()
+        // eslint-disable-next-line
     },[])
     
     return(

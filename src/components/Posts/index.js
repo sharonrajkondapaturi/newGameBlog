@@ -39,7 +39,7 @@ const Posts = ()=>{
                 genre:eachResponse.genre,
                 imageUrl:eachResponse.image_url,
                 content:eachResponse.content,
-                video_url:eachResponse.video_url,
+                videoUrl:eachResponse.video_url,
                 publishedBy:eachResponse.published_by,
                 publishedDate:eachResponse.published_date,
                 publishedTime:eachResponse.published_time,
@@ -144,6 +144,7 @@ const Posts = ()=>{
 
     useEffect(()=>{
         onRender()
+        // eslint-disable-next-line
     },[title,genre])
 return(
     <div className='post-background'>

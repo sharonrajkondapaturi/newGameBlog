@@ -12,9 +12,6 @@ const Header = ()=>{
         setHam(prevState=>!prevState)
     }
 
-    const onLogin = () => {
-        navigate('/login')
-    }
     const onLogout = () => {
         Cookies.remove('jwt_token')
         navigate('/login')
@@ -28,8 +25,8 @@ const Header = ()=>{
                 ham?<ul className='mobile-ham'>
                     <li><a href="http://localhost:3000/login" className='mobile-anchors'>Home</a></li>
                     <li><a href="http://localhost:3000/posts" className='mobile-anchors'>Posts</a></li>
-                    <li><a href="www.google.com" className='mobile-anchors'>User Posts</a></li>
-                    <li><a href="www.google.com" className='mobile-anchors'>About</a></li>
+                    <li><a href="http://localhost:3000/userposts" className='mobile-anchors'>User Posts</a></li>
+                    <li><a href="http://localhost:3000/newpost" className='mobile-anchors'>Add Post</a></li>
                 </ul>:null
                 }
             </nav>
@@ -38,20 +35,20 @@ const Header = ()=>{
                     <li><a href="http://localhost:3000/">Home</a></li>
                     <li><a href="http://localhost:3000/posts">Posts</a></li>
                     <li><a href="http://localhost:3000/userposts">User Posts</a></li>
-                    <li><a href="www.google.com">About</a></li>
+                    <li><a href="http://localhost:3000/newpost">Add Post</a></li>
                 </ul>
             </nav>
             <nav>
                 <ul>
-                    <li><a href="www.google.com">UserDetails</a></li>
-                    <li><button onClick={onLogin}>Login</button></li>
+                    <li><a href="http://localhost:3000/register">Register</a></li>
+                    <li><a href='http://localhost:3000/login'>Login</a></li>
                     <li><button onClick={onLogout}>Logout</button></li>
                 </ul>
             </nav>
             <nav className='mobile-nav'>
                 <ul className='mobile-right'>
-                <li><a href="www.google.com">UserDetails</a></li>
-                <li><button className='mobile-button' onClick={onLogin}>Login</button></li>
+                <li><a href="http://localhost:3000/register">Register</a></li>
+                <li><a href="http://localhost:3000/login" className='mobile-button'>Login</a></li>
                 </ul>
             </nav>
         </header>

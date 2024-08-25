@@ -11,10 +11,15 @@
     width:400px;
     height:50px;
     font-family:cursive;
+    font-size: 16px;
 }
 .title-content{
     width:500px;
     height:400px;
+    padding:10px;
+    font-size:16px;
+    font-family:Roboto;
+    line-height: 20px;
 }
 .input-image{
     width:400px;
@@ -22,4 +27,9 @@
     padding:8px;
     border-radius:8px;
     border:1px solid;
+}
+select{
+    padding:8px;
+    width:200px;
+    border-radius:10px;
 }

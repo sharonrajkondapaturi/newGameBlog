@@ -1,24 +1,23 @@
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import {useNavigate,useLocation,useParams} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
 
-const EditPost = ()=>{
+const NewPost = ()=>{
     const [title,setTitle] = useState('')
     const [content,setContent] = useState('')
     const [genre,setGenre] = useState('')
     const [image,setImage] = useState('')
     const [video,setVideo] = useState('')
     const [offWeb,setWeb] = useState('')
-    const location = useLocation()
+    const [company,setCompany] = useState('')
     const navigate = useNavigate()
-    const {id} = useParams()
 
     const onRender = async(event)=>{
         event.preventDefault()
-        const postApiurl = `https://sharongameblog.onrender.com/posts/${id}`
+        const postApiurl = `https://sharongameblog.onrender.com/posts/`
         const jwtToken = Cookies.get('jwt_token')
         const config = {
             headers: {Authorization:`Bearer ${jwtToken}`}
@@ -30,8 +29,11 @@ const EditPost = ()=>{
             official_website:offWeb,
             image_url:image,
             video_url:video,
+            company:company,
         }
-        await axios.put(postApiurl,postData,config)
+        console.log(postData)
+        const response = await axios.post(postApiurl,postData,config)
+        console.log(response)
         navigate('/userposts')
     }
 
@@ -59,15 +61,9 @@ const EditPost = ()=>{
         setWeb(event.target.value)
     }
 
-    useEffect(()=>{
-        setTitle(location.state.title)
-        setContent(location.state.content)
-        setImage(location.state.imageUrl)
-        setVideo(location.state.videoUrl)
-        setGenre(location.state.genre)
-        setWeb(location.state.officialWebsite)
-        // eslint-disable-next-line
-    },[location.state.title,location.state.content,location.state.imageUrl,location.state.videoUrl])
+    const onCompany = event => {
+        setCompany(event.target.value)
+    }
 
     const onRenderSuccess = ()=>(
         <form className='edit-post' onSubmit={onRender}>
@@ -80,7 +76,7 @@ const EditPost = ()=>{
                 <option value="Racing">Racing</option>
                 <option value="Action-Adventure-Stealth">Action-Adventure-Stealth</option>
             </select>
-            <label htmlFor='content'>Content</label>
+            <label htmlFor='content' style={{marginTop:10}}>Content</label>
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
             <label htmlFor="image" style={{marginTop:10}}>Type Image Url</label>
             <input id="image" value={image} className='input-image' onChange={onImage}/>
@@ -88,7 +84,9 @@ const EditPost = ()=>{
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
             <label htmlFor="web" style={{marginTop:10}}>officialWebsite</label>
             <input id="web" value={offWeb} className='input-image' onChange={onWeb}/>
-            <button type="submit">submit</button>
+            <label htmlFor="company" style={{marginTop:10}}>company</label>
+            <input id="company" value={company} className='input-image' onChange={onCompany}/>
+            <button type="submit" style={{marginTop:10}}>submit</button>
         </form>
     )
 
@@ -101,4 +99,4 @@ const EditPost = ()=>{
     )
 }
 
-export default EditPost
+export default NewPost
