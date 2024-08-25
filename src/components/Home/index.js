@@ -1,99 +1,60 @@
-import {useState,useEffect} from 'react'
-import {ThreeDots} from 'react-loader-spinner'
-import Header from '../Header'
+import { useState } from 'react'
+import Cookies from 'js-cookie'
+import {useNavigate} from 'react-router-dom'
+import { GiHamburgerMenu } from "react-icons/gi";
 import './index.css'
 
-const apiStatus = {
-    initial:"INITIAL",
-    loading:"LOADING",
-    success:"SUCCESS",
-    failure:"FAILURE"
-}
+//This is the Header of the blog which is fixed every page
+const Header = ()=>{
+    const [ham,setHam] = useState(false)
+    const navigate = useNavigate()
 
-const Home = ()=>{
-    const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
-    
-    const onRender = ()=>{
-        setApiStatus(apiStatus.loading)
-        setApiStatus(apiStatus.success)
-    }
-    
-    const onRenderLoading = ()=>(
-    <center style={{marginTop:100}}>
-        <ThreeDots visible={true} height="80" width="80"/>
-    </center>
-    )
-
-const onRenderSuccess = () =>(
-    <>
-    <section className='section-odd'>
-    <aside>
-        <img src="https://i.blogs.es/b06eda/bo300/1366_2000.jpg" 
-        alt="call-of-duty" 
-        className='odd-img'
-        />
-    </aside>
-    <article className='odd-article'>
-        <h1>Experience the war Zone</h1>
-        <p>Call of duty Black ops 3 has Muliplayer options</p>
-    </article>
-    </section>
-    <section className='section-even'>
-        <article className='even-article'>
-            <h1>Experience the Leap of Faith towards the Generation of Kenway</h1>
-            <p>After the Ezio Generation dive into new generation of Kenway timeline</p>
-        </article>
-        <aside>
-            <img src="https://www.godisageek.com/wp-content/uploads/assassins-creed-3-remastered-review-1024x576.jpg" 
-            className='even-img'
-            alt="assassins creed"/>
-        </aside>
-    </section>
-    <section className='section-odd'>
-    <aside>
-        <img src="https://m.economictimes.com/thumb/height-450,width-600,imgsize-45140,msid-104388013/marvels-spider-man-2-set-to-release-soon-heres-all-you-need-to-know.jpg" 
-        alt="marvel-spiderman"
-        className='odd-img'
-        />
-    </aside>
-    <article className='odd-article'>
-        <h1>Swing over the city of New York and many cities</h1>
-        <p>Peter Parker and Spiderman will save the neighbourhood</p>
-    </article>
-    </section>
-    <section className='section-even'>
-        <article className='even-article'>
-            <h1>Can we Forget the horrror of Racoon City</h1>
-            <p>Will Leon and Claire save the Nightmare of the Nightmare</p>
-        </article>
-        <aside>
-            <img src="https://m.media-amazon.com/images/I/71vgPG6gLiL._AC_UF1000,1000_QL80_.jpg" 
-            className='even-img'
-            alt="resident-evil"/>
-        </aside>
-    </section>
-    </>
-)
-    const onRenderStatus = ()=>{
-        switch(currentApiStatus){
-            case apiStatus.loading:
-                return onRenderLoading()
-            case apiStatus.success:
-                return onRenderSuccess()
-            default:
-                return null
-        }
+    const onHam = ()=>{
+        setHam(prevState=>!prevState)
     }
 
-    useEffect(()=>{
-        onRender()
-    },[])
+    const onLogout = () => {
+        Cookies.remove('jwt_token')
+        navigate('/login')
+    }
+    
     return(
-        <div>
-            <Header/>
-            {onRenderStatus()}
-        </div>
+        <header>
+            <nav className="ham" onClick={onHam}>
+                <GiHamburgerMenu fill='#fff' size={20} style={{position:'fixed'}}/>
+                {
+                ham?<ul className='mobile-ham'>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  href="https://newgameblog.onrender.com/login" className='mobile-anchors'>Home</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  href="https://newgameblog.onrender.com/posts" className='mobile-anchors'>Posts</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a href="https://newgameblog.onrender.com/userposts" className='mobile-anchors'>User Posts</a></li>
+                    <li style={{paddingBottom:5}}><a href="http://localhost:3000/newpost" className='mobile-anchors'>Add Post</a></li>
+                </ul>:null
+                }
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="https://newgameblog.onrender.com/">Home</a></li>
+                    <li><a href="https://newgameblog.onrender.com/posts">Posts</a></li>
+                    <li><a href="https://newgameblog.onrender.com/userposts">User Posts</a></li>
+                    <li><a href="https://newgameblog.onrender.com/newpost">Add Post</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="https://newgameblog.onrender.com/register">Register</a></li>
+                    <li><a href='https://newgameblog.onrender.com/login'>Login</a></li>
+                    <li><button onClick={onLogout}>Logout</button></li>
+                </ul>
+            </nav>
+            <nav className='mobile-nav'>
+                <ul className='mobile-right'>
+                <li><a href="https://newgameblog.onrender.com/register">Register</a></li>
+                <li><a href="https://newgameblog.onrender.com/login">Login</a></li>
+                <li><button onClick={onLogout} className='mobile-button'>Logout</button></li>
+                </ul>
+            </nav>
+        </header>
     )
 }
 
-export default Home
+export default Header
