@@ -1,12 +1,12 @@
 .post-list{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items:center;
+    margin-left:40px;
     margin-bottom:35px;
-    width:900px;
+    margin-top:40px;
     cursor:pointer;
-    padding-left:40px;
     text-decoration: none;
 }
 .post-title{
@@ -33,6 +33,7 @@
 }
 .delete-button{
     text-align: center;
+    width:100px;
 }
 .delete-button:hover{
     background-color:#f00c0c;
@@ -41,6 +42,7 @@
 .edit-button{
     text-align: center;
     margin-right:10px;
+    width:100px;
 }
 .edit-button:hover{
     background-color: #2fb559;
@@ -49,14 +51,11 @@
 @media screean and (max-width:991px){
     .post-image{
         height:180px;
-        width:220px;
+        width:250px;
         margin-right:20px;
     }
-    .post-list{
-        width:550px;
-    }
     .post-article{
-        width:100px;
+        width:250px;
     }
     .post-title{
         font-size:11px;
@@ -72,14 +71,11 @@
 @media screean and (max-width:767px){
     .post-image{
         height:180px;
-        width:220px;
+        width:225px;
         margin-right:20px;
     }
-    .post-list{
-        width:550px;
-    }
     .post-article{
-        width:100px;
+        width:225px;
     }
     .post-title{
         font-size:11px;
@@ -87,19 +83,19 @@
     .publish{
         font-size:10px;
     }
+    .button-rows{
+        display: flex;
+    }
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:575px){
     .post-image{
         height:180px;
-        width:220px;
+        width:200px;
         margin-right:20px;
     }
-    .post-list{
-        width: 420px;
-    }
     .post-article{
-        width:150px;
+        width:200px;
     }
     .post-title{
         font-size:12px;
@@ -108,36 +104,19 @@
         font-size:11px;
     }
     .delete-button{
-        width:100px;
+        width:90px;
+    }
+    .edit-button{
+        width:90px; 
     }
 }
-@media screen and (max-width:450px){
-    .post-list{
-        width:405px;
-    }
+@media screen and (max-width:375px){
     .post-article{
         width:150px;
     }
     .post-image{
-        margin-left:10px;
         height:150px;
-        width:100px;
-        margin-right:20px;
-    }
-    .delete-button{
-        width:100px;
-    }
-}
-@media screen and (max-width:375px){
-    .post-list{
-        width:325px;
-    }
-    .post-article{
-        width:140px;
-    }
-    .post-image{
-        height:150px;
-        width:180px;
+        width:150px;
         margin-right:20px;
     }
     .post-title{
@@ -146,7 +125,15 @@
     .publish{
         font-size:10px;
     }
+    .button-rows{
+        display: flex;
+    }
+    .edit-button{
+        width: 60px;
+        font-size: 10px;
+    }
     .delete-button{
-        width:100px;
+        width:60px;
+        font-size: 10px;
     }
 }

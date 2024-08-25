@@ -92,7 +92,7 @@ const onRenderSuccess = () =>(
         onRender()
     },[])
     return(
-        <div>
+        <div className='home'>
             <Header/>
             {onRenderStatus()}
         </div>

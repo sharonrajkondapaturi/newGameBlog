@@ -1,7 +1,5 @@
 .blog{
-    display:flex;
-    flex-direction: column;
-    min-height:100vh;
+    margin-top: 100px;
     animation:slideBlog 2s;
     transition: 1s;
 }
@@ -14,7 +12,6 @@
     }
 }
 .blog-section{
-    margin-top:80px;
     padding:40px;
 }
 .blog-img{

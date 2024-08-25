@@ -1,3 +1,6 @@
+.home{
+    margin-top:100px;
+}
 h1{
     font-size: 52px;
 }
@@ -11,8 +14,7 @@ p{
     justify-content: center;
     align-items: center;
     color:#fff;
-    margin-top: 60px;
-    height:550px;
+    height:750px;
 }
 .odd-img{
     height:458px;
@@ -113,17 +115,11 @@ p{
     }
 }
 @media screen and (max-width:991px){
-    .section-odd{
-        margin-top: 120px;
-    }
     .odd-img{
         height:300px;
     }
 }
 @media screen and (max-width:767px){
-    .section-odd{
-        margin-top:60px;
-    }
     .odd-img{
         height:300px;
         width:280px;
@@ -153,9 +149,6 @@ p{
     }
 }
 @media screen and (max-width:435px){
-    .section-odd{
-        margin-top:50px;
-    }
     .section-even{
         display: flex;
         flex-direction: column;
@@ -173,8 +166,8 @@ p{
     }
 }
 @media screen and (max-width:375px){
-    .section-odd{
-        margin-top:40px;
+    .home{
+        margin-top: 100px;
     }
     .odd-img{
         height:250px;

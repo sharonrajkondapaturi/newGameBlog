@@ -45,8 +45,8 @@ const PostList = props =>{
                 <p className="publish">PublishedBy: {publishedBy}</p>
                 <p className='publish'>PublishedDate: {publishedDate}</p>
                 {access?(
-                <article>
-                    <Link to= {`/editpost/${id}`} state={postData} style={{textDecoration:"none"}}>
+                <article className='button-rows'>
+                    <Link to= {`/editpost/${id}`} state={postData} style={{textDecoration:"none",padding:0}}>
                     <button type="button" className='edit-button' onClick={onEdit} >
                         <FaEdit/>
                         Edit

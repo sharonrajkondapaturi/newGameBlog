@@ -59,7 +59,7 @@ const UserPosts = ()=>{
 
     //When the data is successfully fetched
     const onRenderSuccess = () => (
-        <div className='main-content'>
+        <div>
             {
                 postDetails.length !== 0 ?
                 <ul className='post-unlist'>
@@ -95,7 +95,7 @@ const UserPosts = ()=>{
         // eslint-disable-next-line
     },[])
 return(
-    <div className='post-background'>
+    <div className='user-ground'>
     <Header/>
     <section className='input-section'>
         {onRenderStatus()}
