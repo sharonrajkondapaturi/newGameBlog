@@ -24,7 +24,7 @@ const Header = ()=>{
     }
 
     const onlogin = () => {
-        navigate('/')
+        navigate('/login')
     }
 
     const onPosts = () => {
