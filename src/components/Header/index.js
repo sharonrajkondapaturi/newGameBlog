@@ -13,6 +13,7 @@ const Header = ()=>{
         setHam(prevState=>!prevState)
     }
 
+    //used to logout from the cookies
     const onLogout = () => {
         Cookies.remove('jwt_token')
         navigate('/login')
