@@ -7,7 +7,9 @@ import UserPosts from './components/UserPosts';
 import Blog from './components/Blog';
 import EditPost from './components/EditPost'
 import NewPost from './components/NewPost'
+import ProtectedRoute from './components/ProtectedRoutes';
 import './App.css';
+
 
 const App = ()=>(
   <BrowserRouter>
@@ -16,10 +18,12 @@ const App = ()=>(
     <Route path="/register" element={<Register/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/posts" element={<Posts/>}/>
-    <Route path="/userposts" element={<UserPosts/>}/>
     <Route path="/posts/:id" element={<Blog/>} />
+    <Route element={<ProtectedRoute/>}>
     <Route path="/newpost" element={<NewPost/>}/>
     <Route path="/editpost/:id" element={<EditPost/>}/>
+    <Route path="/userposts" element={<UserPosts/>}/>
+    </Route>
   </Routes>
   </BrowserRouter>
 )
