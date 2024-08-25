@@ -61,11 +61,14 @@ const UserPosts = ()=>{
 
     const onRenderSuccess = () => (
         <div className='main-content'>
-            <ul className='post-unlist'>
+            {
+                postDetails.length !== 0 ?
+                <ul className='post-unlist'>
             {postDetails.map(eachPost=>
                 <PostList key={eachPost.id} posts={eachPost} access={true}/>
             )}
-        </ul>
+            </ul>:<h1>Add New Post</h1>
+            }
             <aside>
             <div>
             <input type="input"  onChange = {onTitle} value={title}/>

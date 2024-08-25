@@ -68,27 +68,6 @@ const Posts = ()=>{
                 <PostList key={eachPost.id} posts={eachPost}/>
             )}
         </ul>
-            <aside>
-            <div>
-            <input type="input"  onChange = {onTitle} value={title}/>
-            </div>
-            <div>
-            <input id = "action" type="radio" checked={action} value={genre} onClick={onToggleAction}/>
-            <label htmlFor="action">Action</label>
-            </div>
-            <div>
-            <input id = "adventure" type="radio" checked={adventure} value={genre} onClick={onToggleAdventure}/>
-            <label htmlFor="adventure">Adventure</label>
-            </div>
-            <div>
-            <input id = "racing" type="radio" checked={racing} value={genre} onClick={onToggleRacing}/>
-            <label htmlFor="racing">Racing</label>
-            </div>
-            <div>
-            <input id = "survival" type="radio" checked={horror} value={genre} onClick={onToggleHorror}/>
-            <label htmlFor="survival">Survival Horror</label>
-            </div>
-        </aside>
         </div>
     )
 
@@ -147,10 +126,31 @@ const Posts = ()=>{
         // eslint-disable-next-line
     },[title,genre])
 return(
-    <div className='post-background'>
+    <div>
     <Header/>
     <section className='input-section'>
         {onRenderStatus()}
+        <aside>
+            <div>
+            <input type="input"  onChange = {onTitle} value={title}/>
+            </div>
+            <div>
+            <input id = "action" type="radio" checked={action} value={genre} onClick={onToggleAction}/>
+            <label htmlFor="action">Action</label>
+            </div>
+            <div>
+            <input id = "adventure" type="radio" checked={adventure} value={genre} onClick={onToggleAdventure}/>
+            <label htmlFor="adventure">Adventure</label>
+            </div>
+            <div>
+            <input id = "racing" type="radio" checked={racing} value={genre} onClick={onToggleRacing}/>
+            <label htmlFor="racing">Racing</label>
+            </div>
+            <div>
+            <input id = "survival" type="radio" checked={horror} value={genre} onClick={onToggleHorror}/>
+            <label htmlFor="survival">Survival Horror</label>
+            </div>
+        </aside>
     </section>
     </div>
 )

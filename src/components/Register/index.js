@@ -78,8 +78,6 @@ const Register = ()=>{
                 <input id="username" type="text" placeholder="Enter username" onChange={onUser} value={username} className='login-input'/>
                 <label htmlFor='password'>password</label>
                 <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='login-input'/>
-                <label htmlFor='password'>Confirm Password</label>
-                <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='login-input'/>
                 <label htmlFor='confirmpassword'>Confirm Password</label>
                 <input id = "confirmpassword" type="password" placeholder='Enter password' onChange={onConfirm} value={confirmPassword} className='login-input'/>
                 <center>
@@ -87,7 +85,7 @@ const Register = ()=>{
                 </center>
                 {loading?onLoading():null}
                 {error===''?null:<p className='error'>{error}</p>}
-                <a href="http://localhost:3000/register" className='blink'>Are you a new user?</a>
+                <a href="http://localhost:3000/login" className='blink'>already a user?</a>
             </form>
         </div>
     )

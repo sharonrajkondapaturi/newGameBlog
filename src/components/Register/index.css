@@ -15,12 +15,13 @@
 .register-form{
     background-color:transparent;
     border-radius:15px;
-    height:500px;
+    height:420px;
     width: 450px;
     display: flex;
     flex-direction: column;
     padding:40px;
     border:1px solid #000;
+    margin-top: 50px;
 }
 label{
     margin-bottom: 10px;

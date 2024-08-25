@@ -13,6 +13,7 @@
     font-family: cursive;
 }
 .login-form{
+    margin-top:auto;
     background-color:transparent;
     border-radius:15px;
     height:380px;

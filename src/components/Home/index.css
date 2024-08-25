@@ -93,3 +93,81 @@ p{
         margin-left:50px;
     }
 }
+@media screen and (max-width:1023px){
+    .section-odd{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:600px;
+        width:100%;
+    }
+    h1{
+        font-size:32px;
+        text-align:center;
+    }
+    p{
+        text-align: center;
+    }
+}
+@media screen and (max-width:767px){
+    .odd-img{
+        height:300px;
+        width:250px;
+    }
+    .even-img{
+        height:300px;
+        width:250px;
+    }
+}
+@media screen and (max-width:575px){
+    .odd-img{
+        height:300px;
+        width:250px;
+    }
+    .even-img{
+        height:300px;
+        width:250px;
+    }
+    h1{
+        font-size:20px;
+    }
+}
+@media screen and (max-width:425px){
+    .section-odd{
+        margin-top:50px;
+    }
+    .section-even{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+    }
+    .odd-img{
+        height:300px;
+        width:300px;
+    }
+    .even-img{
+        height:300px;
+        width:300px;
+    }
+}
+@media screen and (max-width:375px){
+    .section-odd{
+        margin-top:60px;
+    }
+    .odd-img{
+        height:250px;
+        width:250px;
+    }
+    .even-img{
+        height:250px;
+        width:250px;
+    }
+    h1{
+        font-size:24px;
+    }
+    p{
+        font-size:16px;
+    }
+}
