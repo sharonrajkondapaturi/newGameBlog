@@ -47,32 +47,32 @@ const Header = ()=>{
                 <GiHamburgerMenu fill='#fff' size={20} style={{position:'fixed'}}/>
                 {
                 ham?<ul className='mobile-ham'>
-                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  onClick={onHome} className='mobile-anchors'>Home</a></li>
-                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  onClick={onPosts} className='mobile-anchors'>Posts</a></li>
-                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a onClick={onUserPosts} className='mobile-anchors'>User Posts</a></li>
-                    <li style={{paddingBottom:5}}><a onClick={onNewPost} className='mobile-anchors'>Add Post</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  href="http://localhost:3000/login" className='mobile-anchors'>Home</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  href="http://localhost:3000/posts" className='mobile-anchors'>Posts</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a href="http://localhost:3000/userposts" className='mobile-anchors'>User Posts</a></li>
+                    <li style={{paddingBottom:5}}><a href="http://localhost:3000/newpost" className='mobile-anchors'>Add Post</a></li>
                 </ul>:null
                 }
             </nav>
             <nav>
                 <ul>
-                    <li><a onClick={onHome}>Home</a></li>
-                    <li><a onClick={onPosts}>Posts</a></li>
-                    <li><a onClick={onUserPosts}>User Posts</a></li>
-                    <li><a onClick={onNewPost}>Add Post</a></li>
+                    <li><a href="http://localhost:3000/">Home</a></li>
+                    <li><a href="http://localhost:3000/posts">Posts</a></li>
+                    <li><a href="http://localhost:3000/userposts">User Posts</a></li>
+                    <li><a href="http://localhost:3000/newpost">Add Post</a></li>
                 </ul>
             </nav>
             <nav>
                 <ul>
-                    <li><a onClick={onRegister}>Register</a></li>
-                    <li><a onClick={onlogin}>Login</a></li>
+                    <li><a href="http://localhost:3000/register">Register</a></li>
+                    <li><a href='http://localhost:3000/login'>Login</a></li>
                     <li><button onClick={onLogout}>Logout</button></li>
                 </ul>
             </nav>
             <nav className='mobile-nav'>
                 <ul className='mobile-right'>
-                <li><a onClick={onRegister}>Register</a></li>
-                <li><a onClick={onlogin}>Login</a></li>
+                <li><a href="http://localhost:3000/register">Register</a></li>
+                <li><a href="http://localhost:3000/login">Login</a></li>
                 <li><button onClick={onLogout} className='mobile-button'>Logout</button></li>
                 </ul>
             </nav>
