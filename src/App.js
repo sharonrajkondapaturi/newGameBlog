@@ -10,7 +10,7 @@ import NewPost from './components/NewPost'
 import ProtectedRoute from './components/ProtectedRoutes';
 import './App.css';
 
-
+//there are the routes which has private and public routes
 const App = ()=>(
   <BrowserRouter>
   <Routes>
