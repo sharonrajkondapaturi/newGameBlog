@@ -88,7 +88,7 @@ const EditPost = ()=>{
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
             <label htmlFor="web" style={{marginTop:10}}>officialWebsite</label>
             <input id="web" value={offWeb} className='input-image' onChange={onWeb}/>
-            <button type="submit">submit</button>
+            <button style={{marginTop:10}} type="submit">submit</button>
         </form>
     )
 

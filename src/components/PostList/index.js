@@ -38,8 +38,8 @@ const PostList = props =>{
             </aside>
             <article className='post-article'>
                 <h1 className='post-title'>{title}</h1>
-                <p>PublishedBy: {publishedBy}</p>
-                <p>PublishedDate: {publishedDate}</p>
+                <p className="publish">PublishedBy: {publishedBy}</p>
+                <p className='publish'>PublishedDate: {publishedDate}</p>
                 {access?(
                 <article>
                     <Link to= {`/editpost/${id}`} state={postData} style={{textDecoration:"none"}}>

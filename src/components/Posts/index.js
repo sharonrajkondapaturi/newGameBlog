@@ -126,29 +126,29 @@ const Posts = ()=>{
         // eslint-disable-next-line
     },[title,genre])
 return(
-    <div>
+    <div className='post-background'>
     <Header/>
     <section className='input-section'>
         {onRenderStatus()}
-        <aside>
+        <aside className="filter">
             <div>
             <input type="input"  onChange = {onTitle} value={title}/>
             </div>
             <div>
             <input id = "action" type="radio" checked={action} value={genre} onClick={onToggleAction}/>
-            <label htmlFor="action">Action</label>
+            <label className="genre" htmlFor="action">Action</label>
             </div>
             <div>
             <input id = "adventure" type="radio" checked={adventure} value={genre} onClick={onToggleAdventure}/>
-            <label htmlFor="adventure">Adventure</label>
+            <label className="genre" htmlFor="adventure">Adventure</label>
             </div>
             <div>
             <input id = "racing" type="radio" checked={racing} value={genre} onClick={onToggleRacing}/>
-            <label htmlFor="racing">Racing</label>
+            <label className="genre" htmlFor="racing">Racing</label>
             </div>
             <div>
             <input id = "survival" type="radio" checked={horror} value={genre} onClick={onToggleHorror}/>
-            <label htmlFor="survival">Survival Horror</label>
+            <label className="genre" htmlFor="survival">Survival Horror</label>
             </div>
         </aside>
     </section>

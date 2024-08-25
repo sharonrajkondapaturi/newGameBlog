@@ -20,13 +20,13 @@ const Header = ()=>{
     return(
         <header>
             <nav className="ham" onClick={onHam}>
-                <GiHamburgerMenu fill='#fff' size={20}/>
+                <GiHamburgerMenu fill='#fff' size={20} style={{position:'fixed'}}/>
                 {
                 ham?<ul className='mobile-ham'>
-                    <li><a href="http://localhost:3000/login" className='mobile-anchors'>Home</a></li>
-                    <li><a href="http://localhost:3000/posts" className='mobile-anchors'>Posts</a></li>
-                    <li><a href="http://localhost:3000/userposts" className='mobile-anchors'>User Posts</a></li>
-                    <li><a href="http://localhost:3000/newpost" className='mobile-anchors'>Add Post</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  href="http://localhost:3000/login" className='mobile-anchors'>Home</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  href="http://localhost:3000/posts" className='mobile-anchors'>Posts</a></li>
+                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a href="http://localhost:3000/userposts" className='mobile-anchors'>User Posts</a></li>
+                    <li style={{paddingBottom:5}}><a href="http://localhost:3000/newpost" className='mobile-anchors'>Add Post</a></li>
                 </ul>:null
                 }
             </nav>
@@ -48,7 +48,8 @@ const Header = ()=>{
             <nav className='mobile-nav'>
                 <ul className='mobile-right'>
                 <li><a href="http://localhost:3000/register">Register</a></li>
-                <li><a href="http://localhost:3000/login" className='mobile-button'>Login</a></li>
+                <li><a href="http://localhost:3000/login">Login</a></li>
+                <li><button onClick={onLogout} className='mobile-button'>Logout</button></li>
                 </ul>
             </nav>
         </header>

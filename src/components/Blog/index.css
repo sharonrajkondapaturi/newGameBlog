@@ -49,3 +49,19 @@
 .blog-details:hover{
     transform: translateX(10px);
 }
+
+@media screen and (max-width:375px){
+    .blog-img{
+        height:200px;
+        width:280px;
+    }
+    .blog-title{
+        font-size: 18px;
+    }
+    .blog-details{
+        font-size:15px;
+    }
+    .blog-content{
+        font-size:12px;
+    }
+}

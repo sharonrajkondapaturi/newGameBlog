@@ -24,3 +24,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
+@media screen and (max-width:375px){
+    .input-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top:100px;
+    }
+}

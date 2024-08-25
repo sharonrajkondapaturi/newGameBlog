@@ -51,8 +51,9 @@ const Login = ()=>{
         </center>
     )
     return(
-        <div className='background'>
+        <>
         <Header/>
+        <div className='background'>
             <form className="login-form" onSubmit={onVerify}>
                 <h1 className='login-head'>Login</h1>
                 <label htmlFor='username'>Username</label>
@@ -67,6 +68,7 @@ const Login = ()=>{
                 <a href="http://localhost:3000/register" className='blink'>Are you a new user?</a>
             </form>
         </div>
+        </>
     )
 }
 

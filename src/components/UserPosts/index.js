@@ -15,17 +15,11 @@ const apiStatus = {
 
 const UserPosts = ()=>{
     const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
-    const [title,setTitle] = useState('')
     const [postDetails,setPost] = useState([])
-    const [action,setaction] = useState(false)
-    const [adventure,setadventure] = useState(false)
-    const [racing,setracing] = useState(false)
-    const [horror,sethorror] = useState(false)
-    const [genre,setGenre] = useState('')
 
     const onRender = async()=>{
         setApiStatus(apiStatus.loading)
-        const postApiurl = `https://sharongameblog.onrender.com/userAuthenticatePosts/?title=${title}&genre=${genre}`
+        const postApiurl = `https://sharongameblog.onrender.com/userAuthenticatePosts/`
         const jwtToken = Cookies.get('jwt_token')
         const config = {
             headers: {Authorization:`Bearer ${jwtToken}`}
@@ -69,27 +63,6 @@ const UserPosts = ()=>{
             )}
             </ul>:<h1>Add New Post</h1>
             }
-            <aside>
-            <div>
-            <input type="input"  onChange = {onTitle} value={title}/>
-            </div>
-            <div>
-            <input id = "action" type="radio" checked={action} value={genre} onClick={onToggleAction}/>
-            <label htmlFor="action">Action</label>
-            </div>
-            <div>
-            <input id = "adventure" type="radio" checked={adventure} value={genre} onClick={onToggleAdventure}/>
-            <label htmlFor="adventure">Adventure</label>
-            </div>
-            <div>
-            <input id = "racing" type="radio" checked={racing} value={genre} onClick={onToggleRacing}/>
-            <label htmlFor="racing">Racing</label>
-            </div>
-            <div>
-            <input id = "survival" type="radio" checked={horror} value={genre} onClick={onToggleHorror}/>
-            <label htmlFor="survival">Survival Horror</label>
-            </div>
-        </aside>
         </div>
     )
 
@@ -98,39 +71,6 @@ const UserPosts = ()=>{
         <h1>Failure</h1>
         </>
     )
-
-    const onTitle = (event) => {
-        setTitle(event.target.value)
-    }
-
-    const onToggleAction = () => {
-        setaction(prevState=> !prevState)
-        setadventure(false)
-        setracing(false)
-        sethorror(false)
-        setGenre("Action")
-    }
-    const onToggleAdventure = () => {
-        setaction(false)
-        setadventure(prevState=> !prevState)
-        setracing(false)
-        sethorror(false)
-        setGenre("Adventure")
-    }
-    const onToggleRacing = () => {
-        setaction(false)
-        setadventure(false)
-        setracing(prevState=> !prevState)
-        sethorror(false)
-        setGenre("Racing")
-    }
-    const onToggleHorror = () => {
-        setaction(false)
-        setadventure(false)
-        setracing(false)
-        sethorror(prevState=> !prevState)
-        setGenre("Survival horror")
-    }
 
     const onRenderStatus = ()=>{
         switch(currentApiStatus){
@@ -146,7 +86,7 @@ const UserPosts = ()=>{
     useEffect(()=>{
         onRender()
         // eslint-disable-next-line
-    },[title,genre])
+    },[])
 return(
     <div className='post-background'>
     <Header/>

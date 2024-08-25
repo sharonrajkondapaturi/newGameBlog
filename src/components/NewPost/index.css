@@ -33,3 +33,19 @@ select{
     width:200px;
     border-radius:10px;
 }
+label{
+    color:#000;
+}
+
+@media screen and (max-width:375px){
+    .title-text{
+        width:220px;
+        height:25px;
+    }
+    .title-content{
+        width:220px;
+    }
+    .input-image{
+        width:220px;
+    }
+}

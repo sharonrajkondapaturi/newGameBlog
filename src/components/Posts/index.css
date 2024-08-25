@@ -1,23 +1,97 @@
-
+.post-background{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+}
 .input-section{
-    background-color: #fff;
     margin-top:100px;
     display: flex;
     justify-content: space-between;
     padding:10px;
-    position: relative;
-    min-height:100vh;
 }
 .post-input{
     border:#fff;
 }
 .post-unlist{
     padding:0px 0px 30px 0px;
-    display: flex;
-    flex-direction: column;
 }
 .main-content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.genre{
+    color:#000;
+}
+@media screen and(max-width:991px) {
+    .filter{
+        display: none;
+    }
+    .input-section{
+        margin-top:100px;
+        display: flex;
+        justify-content: center;
+        padding:10px;
+    }
+    .post-list{
+        width:800px;
+    }
+    .post-image{
+        width: 300px;
+    }
+    .post-unlist{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top:50rem;
+    }
+}
+@media screen and(max-width:767px) {
+    .filter{
+        display: none;
+    }
+}
+@media screen and(max-width:600px){
+    .filter{
+        display: none;
+    }
+    .input-section{
+        margin-top:100px;
+        display: flex;
+        justify-content: center;
+        padding:10px;
+    }
+}
+@media screen and (max-width:575px){
+    .filter{
+        display: none;
+    }
+    .post-unlist{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top:70rem;
+    }
+}
+@media screen and (max-width:455px){
+    .filter{
+        display: none;
+    }
+    .post-unlist{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top:70rem;
+    }
+}
+@media screen and (max-width:375px){
+    .filter{
+        display: none;
+    }
+    .post-unlist{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top:105rem;
+    }
 }

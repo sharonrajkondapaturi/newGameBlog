@@ -46,3 +46,87 @@
     background-color: #2fb559;
     transform: translate(10px,10px);
 }
+@media screean and (max-width:991px){
+    .post-image{
+        height:180px;
+        width:220px;
+        margin-right:20px;
+    }
+    .post-list{
+        width:550px;
+    }
+    .post-article{
+        width:100px;
+    }
+    .post-title{
+        font-size:11px;
+    }
+    .publish{
+        font-size:10px;
+    }
+    .filter{
+        margin-top:2rem;
+    }
+}
+
+@media screean and (max-width:767px){
+    .post-image{
+        height:180px;
+        width:220px;
+        margin-right:20px;
+    }
+    .post-list{
+        width:550px;
+    }
+    .post-article{
+        width:100px;
+    }
+    .post-title{
+        font-size:11px;
+    }
+    .publish{
+        font-size:10px;
+    }
+}
+
+@media screen and (max-width:575px){
+    .post-image{
+        height:180px;
+        width:220px;
+        margin-right:20px;
+    }
+    .post-list{
+        width: 420px;
+    }
+    .post-article{
+        width:150px;
+    }
+    .post-title{
+        font-size:11px;
+    }
+    .publish{
+        font-size:10px;
+    }
+}
+@media screen and (max-width:375px){
+    .post-list{
+        width:305px;
+    }
+    .post-article{
+        width:100px;
+    }
+    .post-image{
+        height:150px;
+        width:180px;
+        margin-right:20px;
+    }
+    .post-title{
+        font-size:11px;
+    }
+    .publish{
+        font-size:10px;
+    }
+    .delete-button{
+        width:100px;
+    }
+}
