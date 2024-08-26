@@ -4,6 +4,15 @@ This blog is used to add,post,delete and update the post
 
 backend GITHUB -> https://github.com/sharonrajkondapaturi/newbackendgamedemo
 
+username -> SharonRaj
+password -> 84249418
+
+username -> Hannah
+password -> 19942004
+
+username -> Kevin
+password -> musickey
+
 Authentication and Autherization is used 
 
 Media Queries were also used (screen)
