@@ -73,8 +73,9 @@ const Register = ()=>{
         )
     
     return(
-        <div className='background'>
+        <>
         <Header/>
+        <div className='background'>
             <form className="register-form" onSubmit={onCredentials}>
                 <h1 className='login-head'>Register</h1>
                 <label htmlFor='username'>Username</label>
@@ -91,6 +92,7 @@ const Register = ()=>{
                 <a href="http://localhost:3000/login" className='blink'>already a user?</a>
             </form>
         </div>
+        </>
     )
 }
 

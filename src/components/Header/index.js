@@ -44,13 +44,13 @@ const Header = ()=>{
     return(
         <header>
             <nav className="ham" onClick={onHam}>
-                <GiHamburgerMenu fill='#fff' size={20} style={{position:'fixed'}}/>
+                <GiHamburgerMenu fill='#fff' size={20} style={{position:'absolute'}}/>
                 {
                 ham?<ul className='mobile-ham'>
-                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  onClick={onHome} className='mobile-anchors'>Home</a></li>
-                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a  onClick={onPosts} className='mobile-anchors'>Posts</a></li>
-                    <li style={{paddingBottom:10,borderBottomStyle:"solid",borderBottomColor:"#000"}}><a onClick={onUserPosts} className='mobile-anchors'>User Posts</a></li>
-                    <li style={{paddingBottom:5}}><a onClick={onNewPost} className='mobile-anchors'>Add Post</a></li>
+                    <li><a onClick={onHome} className='mobile-anchors'>Home</a></li>
+                    <li><a onClick={onPosts} className='mobile-anchors'>Posts</a></li>
+                    <li><a onClick={onUserPosts} className='mobile-anchors'>User Posts</a></li>
+                    <li><a onClick={onNewPost} className='mobile-anchors'>Add Post</a></li>
                 </ul>:null
                 }
             </nav>

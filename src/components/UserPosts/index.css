@@ -1,8 +1,8 @@
-.user-ground{
-    margin-top: 100px;
-}
 @media screen and (max-width:991px) {
-    .user-ground{
-        margin-top: 90px;
+    .mobile-space{
+        margin-top: 100px;
+    }
+    ul{
+        padding: 0px;
     }
 }

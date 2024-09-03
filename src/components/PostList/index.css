@@ -48,7 +48,7 @@
     background-color: #2fb559;
     transform: translate(10px,10px);
 }
-@media screean and (max-width:991px){
+@media screen and (max-width:991px){
     .post-image{
         height:180px;
         width:250px;
@@ -67,8 +67,7 @@
         margin-top:2rem;
     }
 }
-
-@media screean and (max-width:767px){
+@media screen and (max-width:767px){
     .post-image{
         height:180px;
         width:225px;
@@ -90,8 +89,8 @@
 
 @media screen and (max-width:575px){
     .post-image{
-        height:180px;
-        width:200px;
+        height:150px;
+        width:150px;
         margin-right:20px;
     }
     .post-article{
@@ -104,13 +103,16 @@
         font-size:11px;
     }
     .delete-button{
-        width:90px;
+        width:70px;
     }
     .edit-button{
-        width:90px; 
+        width:60px; 
     }
 }
 @media screen and (max-width:375px){
+    .post-list{
+        margin-left:20px;
+    }
     .post-article{
         width:150px;
     }

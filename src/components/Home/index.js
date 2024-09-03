@@ -67,7 +67,7 @@ const onRenderSuccess = () =>(
     <section className='section-even'>
         <article className='even-article'>
             <h1>Can we Forget the horrror of Racoon City</h1>
-            <p>Will Leon and Claire save the Nightmare of the Nightmare</p>
+            <p>Will Leon and Claire save the Nightmare and stop the G-virus</p>
         </article>
         <aside>
             <img src="https://m.media-amazon.com/images/I/71vgPG6gLiL._AC_UF1000,1000_QL80_.jpg" 
@@ -92,10 +92,10 @@ const onRenderSuccess = () =>(
         onRender()
     },[])
     return(
-        <div className='home'>
+        <>
             <Header/>
             {onRenderStatus()}
-        </div>
+        </>
     )
 }
 

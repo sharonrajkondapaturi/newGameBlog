@@ -53,9 +53,9 @@ const Posts = ()=>{
    
     //dispaly Loading
     const onRenderLoading = ()=>(
-        <center style={{marginTop:100}}>
+        <div className="post-loading" style={{marginTop:100}}>
             <ThreeDots visible={true} height="80" width="80"/>
-        </center>
+        </div>
     )
    
     //when it successfully fetched it will display the list of post
@@ -97,11 +97,13 @@ const Posts = ()=>{
         // eslint-disable-next-line
     },[title])
 return(
-    <div className='post-ground'>
+    <>
     <Header/>
+    <div className="input-contain">
     <input type="input" className="post-input" onChange = {onTitle} value={title} placeholder='Enter a Blog'/>
-    {onRenderStatus()}
     </div>
+    {onRenderStatus()}
+    </>
 )
 }
 

@@ -1,6 +1,5 @@
 .background{
     background-image:url("https://www.pixel4k.com/wp-content/uploads/2018/09/dark-souls-3-2016-video-game_1535967754.jpg");
-    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +14,7 @@
 .register-form{
     background-color:transparent;
     border-radius:15px;
-    height:420px;
+    height:450px;
     width: 450px;
     display: flex;
     flex-direction: column;

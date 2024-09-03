@@ -40,7 +40,6 @@ const Login = ()=>{
         try{
             const loginApiUrl = `https://sharongameblog.onrender.com/login`
             const response = await axios.post(loginApiUrl,userDetails)
-            console.log(response)
             onSuccess(response.data.jwtToken)
         }
         catch{

@@ -43,7 +43,6 @@ const UserPosts = ()=>{
                 company:eachResponse.company,
                 officialWebsite:eachResponse.official_website
             }))
-            console.log(postDetails)
             setApiStatus(apiStatus.success)
             setPost(postDetails)
         }
@@ -54,16 +53,18 @@ const UserPosts = ()=>{
    
     //Loading Status
     const onRenderLoading = ()=>(
-        <ThreeDots visible={true} height="80" width="80"/>
+        <div className="post-loading">
+            <ThreeDots visible={true} height="80" width="80"/>
+        </div>
     )
   
 
     //When the data is successfully fetched
     const onRenderSuccess = () => (
-        <div>
+        <div style={{marginTop:90}}>
             {
-                postDetails.length !== 0 ?
-                <ul className='post-unlist'>
+            postDetails.length !== 0 ?
+            <ul className='post-unlist'>
             {postDetails.map(eachPost=>
                 <PostList key={eachPost.id} posts={eachPost} access={true}/>
             )}
@@ -96,12 +97,12 @@ const UserPosts = ()=>{
         // eslint-disable-next-line
     },[])
 return(
-    <div className='user-ground'>
+    <>
     <Header/>
-    <section className='input-section'>
+    <section>
         {onRenderStatus()}
     </section>
-    </div>
+    </>
 )
 }
 
