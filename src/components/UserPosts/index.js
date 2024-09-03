@@ -19,6 +19,7 @@ const UserPosts = ()=>{
     const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
     const [postDetails,setPost] = useState([])
 
+    //render process
     const onRender = async()=>{
         setApiStatus(apiStatus.loading)
         const postApiurl = `https://sharongameblog.onrender.com/userAuthenticatePosts/`
