@@ -45,7 +45,31 @@
 .blog-details:hover{
     transform: translateX(10px);
 }
-
+@media screen and (max-width:991px){
+    .blog-img{
+        margin-top:60px;
+        height:300px;
+        width:400px;
+    }
+    .blog-title{
+        font-size:26px;
+    }
+    .blog-details{
+        font-size:22px;
+    }
+}
+@media screen and (max-width:575px){
+    .blog-img{
+        height:200px;
+        width:330px;
+    }
+    .blog-title{
+        font-size:23px;
+    }
+    .blog-details{
+        font-size:18px;
+    }
+}
 @media screen and (max-width:375px){
     .blog-img{
         height:200px;
