@@ -66,7 +66,7 @@ const Header = ()=>{
                 <ul>
                     <li><a onClick={onRegister}>Register</a></li>
                     <li><a onClick={onlogin}>Login</a></li>
-                    <li><button onClick={onLogout}>Logout</button></li>
+                    <li><button onClick={onLogout} className='logout-button'>Logout</button></li>
                 </ul>
             </nav>
             <nav className='mobile-nav'>

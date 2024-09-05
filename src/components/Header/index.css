@@ -64,6 +64,22 @@ nav:nth-child(3){
         border-radius: 12px;
     }}
 }}
+.logout-button{
+    width:100px;
+    background-color: #3b64d4;
+    border-radius:10px;
+    border:none;
+    color:#fff;
+    padding:8px;
+    font-weight: bold;
+    transition:1s;
+    cursor:pointer;
+    width:80px;
+    margin-left:10px;
+}
+.logout-button:hover{
+    background-color: #d61515;
+}
 @media screen and (max-width:1279px) {
     header{
         height:9vh;

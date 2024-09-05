@@ -32,17 +32,33 @@
     transform: translateX(10px);
 }
 .delete-button{
-    text-align: center;
     width:100px;
+    background-color: #3b64d4;
+    border-radius:10px;
+    border:none;
+    color:#fff;
+    padding:8px;
+    font-weight: bold;
+    transition:1s;
+    cursor:pointer;
+    width:80px;
+    text-align: center;
 }
 .delete-button:hover{
     background-color:#f00c0c;
     transform: translate(10px,10px);
 }
 .edit-button{
-    text-align: center;
-    margin-right:10px;
     width:100px;
+    background-color: #3b64d4;
+    border-radius:10px;
+    border:none;
+    color:#fff;
+    padding:8px;
+    font-weight: bold;
+    transition:1s;
+    cursor:pointer;
+    margin-right:10px;
 }
 .edit-button:hover{
     background-color: #2fb559;

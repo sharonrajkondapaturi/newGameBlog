@@ -64,7 +64,7 @@ const Login = ()=>{
                 <label htmlFor='password'>password</label>
                 <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='login-input'/>
                 <center>
-                <button type="submit">Login</button>
+                <button className="login-button" type="submit">Login</button>
                 </center>
                 {loading?onLoading():null}
                 {error===''?null:<p className='error'>{error}</p>}

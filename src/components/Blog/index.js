@@ -11,6 +11,7 @@ import './index.css'
 //Display The Blog
 const Blog = () => {
     const [post,setPost] = useState([])
+    const [comment,setComment] = useState('')
     const {id} = useParams()
     const onRender = async() =>{
         const postApiurl = `https://sharongameblog.onrender.com/posts/${id}`
@@ -34,6 +35,19 @@ const Blog = () => {
     }))
     setPost(...postDetails)
 }
+    
+const onCancel = ()=>{
+    setComment('')
+}
+
+const onComment = ()=>{
+    
+}
+
+const onColorComment = (event)=>{
+    setComment(event.target.value)
+}
+
 
     useEffect(()=>{
         onRender()
@@ -66,7 +80,19 @@ const Blog = () => {
                 </article>
                 <p className='blog-para'>{post.content}</p>
             </section>
-
+            <section className='comment-section'>
+                <h1>Comments</h1>
+                <article className='comment-article'>
+                    <FaCircleUser size={40} style={{marginRight:20}}/>
+                    <div className='comment-details'>
+                        <input type="text" className='comment-input'onChange={onColorComment} placeholder="Add a comment ..." value={comment}/>
+                        <div className='comment-rows'>
+                            <button type="button" className="comment-cancel" onClick={onCancel} style={{marginRight:10}}>Cancel</button>
+                            <button type="button" className= {comment.length > 0 ? "comment-button-color":"comment-button-no-color"}  onClick={onComment}>Comment</button>
+                        </div>
+                    </div>
+                </article>
+            </section>
         </div>
     )
 }

@@ -85,7 +85,7 @@ const Register = ()=>{
                 <label htmlFor='confirmpassword'>Confirm Password</label>
                 <input id = "confirmpassword" type="password" placeholder='Enter password' onChange={onConfirm} value={confirmPassword} className='login-input'/>
                 <center>
-                <button type="submit">Register</button>
+                <button type="submit" className='register-button'>Register</button>
                 </center>
                 {loading?onLoading():null}
                 {error===''?null:<p className='error'>{error}</p>}
