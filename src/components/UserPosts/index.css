@@ -1,3 +1,26 @@
+.empty-failure-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.empty-button{
+    background-color: #3978e6;
+    border:none;
+    color:#fff;
+    padding:8px;
+    border-radius:10px;
+    cursor: pointer;
+    width:120px;
+    font-weight: 550;
+    font-family: Roboto;
+    font-size:16px;
+}
+.empty-button:hover{
+    background-color: #17d427;
+    font-weight:800;
+}
 @media screen and (max-width:991px) {
     .mobile-space{
         margin-top: 100px;

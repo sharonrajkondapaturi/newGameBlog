@@ -5,6 +5,7 @@ import { ThreeDots } from 'react-loader-spinner'
 import Header from '../Header'
 import PostList from '../PostList'
 import './index.css'
+import { useNavigate } from 'react-router-dom'
 
 //check the api statsus
 const apiStatus = {
@@ -18,6 +19,7 @@ const apiStatus = {
 const UserPosts = ()=>{
     const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
     const [postDetails,setPost] = useState([])
+    const navigate = useNavigate()
 
     //render process
     const onRender = async()=>{
@@ -46,9 +48,18 @@ const UserPosts = ()=>{
             setApiStatus(apiStatus.success)
             setPost(postDetails)
         }
-        catch{
-            setApiStatus(apiStatus.failure)
+        catch(error){
+            if(error.name === "TypeError"){
+                setApiStatus(apiStatus.success)
+            }
+            else{
+                setApiStatus(apiStatus.failure)
+            }
         }
+    }
+
+    const onNewPost = () => {
+        navigate('/newpost')
     }
    
     //Loading Status
@@ -61,24 +72,29 @@ const UserPosts = ()=>{
 
     //When the data is successfully fetched
     const onRenderSuccess = () => (
-        <div style={{marginTop:90}}>
+        <div>
             {
             postDetails.length !== 0 ?
             <ul className='post-unlist'>
             {postDetails.map(eachPost=>
                 <PostList key={eachPost.id} posts={eachPost} access={true}/>
             )}
-            </ul>:<h1>Add New Post</h1>
+            </ul>:(
+                <div className='empty-failure-list'>
+                    <h1>Add New Post</h1>
+                    <button type="button" className='empty-button' onClick={onNewPost}>Add Post</button>
+                </div>
+            )
             }
         </div>
     ) 
 
     //Failure view when it fails to fetch the data
     const onRenderFailure = () => (
-        <>
-        <img style={{width:320,height:320}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcKcoquPvJ-O9WfgEYiUF34hYhzaGcrtamQ&s" alt="failure-image"/>
-        <button onClick={onRender}>Retry</button>
-        </>
+        <div className='empty-failure-list'>
+        <img style={{width:300,height:300,marginBottom:40}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcKcoquPvJ-O9WfgEYiUF34hYhzaGcrtamQ&s" alt="failure-image"/>
+        <button type="button" onClick={onRender} className='empty-button'>Retry</button>
+        </div>
     )
 
     const onRenderStatus = ()=>{

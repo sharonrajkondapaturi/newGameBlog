@@ -1,0 +1,31 @@
+.comment-list{
+    list-style: none;
+    margin-bottom: 10px;
+}
+.comment-user{
+    display: flex;
+    flex-direction: row;
+}
+.comment-user-details{
+    margin-left:10px;
+}
+.user{
+    width:30px;
+    height:30px;
+}
+.user-date{
+    font-size: 12px;
+}
+@media screen and (max-width:575px){
+    .user-name{
+        font-size:16px;
+    }
+    .comment-para{
+        font-size:13px;
+    }
+}
+@media screen and (max-width:375px) {
+    .user-name{
+        font-size:14px;
+    }
+}

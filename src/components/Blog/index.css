@@ -20,7 +20,7 @@
     border-left:none;
     border-right:none;
     border-bottom: 1px solid;
-    width:600px;
+    width:800px;
     font-size:16px;
     outline: none;
 }
@@ -37,6 +37,7 @@
     border:none;
     padding:8px;
     border-radius: 10px;
+    cursor:pointer;
 }
 .comment-cancel:hover{
     background-color: #a3a2a2;
@@ -46,6 +47,7 @@
     border:none;
     padding:8px;
     border-radius:10px;
+    cursor:pointer;
 }
 .comment-button-color{
     background-color: #1f70db;
@@ -53,6 +55,7 @@
     padding:8px;
     color:#fff;
     border-radius:10px;
+    cursor:pointer;
 }
 @keyframes slideBlog {
     0%{
@@ -68,7 +71,6 @@
 .blog-img{
     width:500px;
     height:300px;
-    cursor:pointer;
 }
 .blog-title{
     font-size: 35px;
@@ -103,6 +105,9 @@
     .blog-details{
         font-size:22px;
     }
+    .comment-input{
+        width:500px;
+    }
 }
 @media screen and (max-width:575px){
     .blog-img{
@@ -119,6 +124,9 @@
         font-size: 13px;
         line-height: 17px;
     }
+    .comment-input{
+        width: 300px;
+    }
 }
 @media screen and (max-width:375px){
     .blog-img{
@@ -134,5 +142,9 @@
     .blog-para{
         font-size: 12px;
         line-height: 17px;
+    }
+    .comment-input{
+        width:200px;
+        font-size:14px;
     }
 }

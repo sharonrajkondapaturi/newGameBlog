@@ -5,6 +5,7 @@ import { ThreeDots } from 'react-loader-spinner'
 import Header from '../Header'
 import PostList from '../PostList'
 import './index.css'
+import { useNavigate } from 'react-router-dom'
 
 //to know the current apiStatus
 const apiStatus = {
@@ -19,6 +20,7 @@ const Posts = ()=>{
     const [currentApiStatus,setApiStatus] = useState(apiStatus.initial)
     const [title,setTitle] = useState('')
     const [postDetails,setPost] = useState([])
+    const navigate = useNavigate()
 
     const onRender = async()=>{
         setApiStatus(apiStatus.loading)
@@ -46,9 +48,18 @@ const Posts = ()=>{
             setApiStatus(apiStatus.success)
             setPost(postDetails)
         }
-        catch{
-            setApiStatus(apiStatus.failure)
+        catch(error){
+            if(error.name === "TypeError"){
+                setApiStatus(apiStatus.success)
+            }
+            else{
+                setApiStatus(apiStatus.failure)
+            }
         }
+    }
+
+    const onNewPost = () => {
+        navigate('/newpost')
     }
    
     //dispaly Loading
@@ -60,21 +71,29 @@ const Posts = ()=>{
    
     //when it successfully fetched it will display the list of post
     const onRenderSuccess = () => (
-        <div className='main-content'>
-        <ul className='post-unlist'>
+        <div>
+            {
+            postDetails.length !== 0 ?
+            <ul className='post-unlist'>
             {postDetails.map(eachPost=>
-                <PostList key={eachPost.id} posts={eachPost}/>
+                <PostList key={eachPost.id} posts={eachPost} access={true}/>
             )}
-        </ul>
+            </ul>:(
+                <div className='empty-failure-list'>
+                    <h1>Add New Post</h1>
+                    <button type="button" className='empty-button' onClick={onNewPost}>Add Post</button>
+                </div>
+            )
+            }
         </div>
     )
    
     //when the api fails to fetch it display failure view
     const onRenderFailure = () => (
-        <>
-        <img style={{width:320,height:320}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcKcoquPvJ-O9WfgEYiUF34hYhzaGcrtamQ&s" alt="failure-image"/>
-        <button onClick={onRender}>Retry</button>
-        </>
+        <div className='empty-failure-list'>
+        <img style={{width:300,height:300,marginBottom:40}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcKcoquPvJ-O9WfgEYiUF34hYhzaGcrtamQ&s" alt="failure-image"/>
+        <button type="button" onClick={onRender} className='empty-button'>Retry</button>
+        </div>
     )
 
     const onTitle = (event) => {
