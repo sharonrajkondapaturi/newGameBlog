@@ -11,8 +11,6 @@ const NewPost = ()=>{
     const [genre,setGenre] = useState('')
     const [image,setImage] = useState('')
     const [video,setVideo] = useState('')
-    const [offWeb,setWeb] = useState('')
-    const [company,setCompany] = useState('')
     const navigate = useNavigate()
 
     const onRender = async(event)=>{
@@ -26,10 +24,8 @@ const NewPost = ()=>{
             title:title,
             content:content,
             genre:genre,
-            official_website:offWeb,
             image_url:image,
             video_url:video,
-            company:company,
         }
         console.log(postData)
         const response = await axios.post(postApiurl,postData,config)
@@ -57,14 +53,6 @@ const NewPost = ()=>{
         setVideo(event.target.value)
     }
 
-    const onWeb = event => {
-        setWeb(event.target.value)
-    }
-
-    const onCompany = event => {
-        setCompany(event.target.value)
-    }
-
     const onRenderSuccess = ()=>(
         <form className='edit-post' onSubmit={onRender}>
             <label htmlFor='title'>Title</label>
@@ -81,12 +69,8 @@ const NewPost = ()=>{
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
             <label htmlFor="image" style={{marginTop:10}}>Type Image Url</label>
             <input id="image" value={image} className='input-image' onChange={onImage}/>
-            <label id="video" style={{marginTop:10}}>Copy Embeded url</label>
+            <label id="video" style={{marginTop:10}}>Type Video url</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
-            <label htmlFor="web" style={{marginTop:10}}>officialWebsite</label>
-            <input id="web" value={offWeb} className='input-image' onChange={onWeb}/>
-            <label htmlFor="company" style={{marginTop:10}}>company</label>
-            <input id="company" value={company} className='input-image' onChange={onCompany}/>
             <button type="submit" style={{marginTop:10}}>submit</button>
         </form>
     )

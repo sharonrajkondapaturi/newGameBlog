@@ -1,40 +1,50 @@
-.background{
-    background-image:url("https://www.pixel4k.com/wp-content/uploads/2018/09/dark-souls-3-2016-video-game_1535967754.jpg");
+.register-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height:100vh;
 }
-.login-head{
+.register-background{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:600px;
+    width: 800px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius:15px;
+}
+.register-head{
     text-align: center;
     font-size:2rem;
     font-family: cursive;
 }
+.register-img{
+    height:600px;
+    width:420px;
+    border-radius: 10px;
+}
 .register-form{
     background-color:transparent;
-    border-radius:15px;
-    height:450px;
-    width: 450px;
     display: flex;
     flex-direction: column;
     padding:40px;
-    border:1px solid #000;
-    margin-top: 50px;
+    margin-top:50px;
 }
 label{
     margin-bottom: 10px;
     font-weight: bold;
     font-family: cursive;
     font-size:18px;
+    color:#fff;
 }
-.login-input{
-    width:400px;
+.register-input{
+    width:300px;
     height:15px;
     padding: 8px;
+    border:1px solid #000;
     border-radius:10px;
-    border:none;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
 }
 .register-button{
     width:100px;
@@ -55,31 +65,83 @@ label{
     text-align: center;
     transition: 1s;
     cursor:pointer;
+    color:#000;
 }
 .blink:hover{
-    color: #f0163e;
+    color: #3b64d4;
 }
 .error{
-    font-weight:bold;
+    font-weight:400;
     text-align: center;
     margin:10px;
     color: #f0163e;
 }
-@media screen and (max-width:575px){
+@media screen and (max-width:991px) {
+    .register-background{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height:720px;
+        width:500px;
+    }
+    .register-img{
+        width:150px;
+        height:150px;
+        border-radius:100%;
+    }
     .register-form{
-        width:250px;
+        margin-top: 10px;
         padding:20px;
     }
-    .login-input{
-        width:220px;
+    .register-input{
+        width:320px;
+    }
+}
+@media screen and (max-width:575px){
+    .register-input{
+        width:270px;
+    }
+    .register-background{
+        width:350px;
+        height:600px;
+    }
+    .register-head{
+        font-size:24px;
+    }
+    .register-img{
+        height: 100px;
+        width: 100px;
+        margin-top: 10px;
+    }
+    .register-form{
+        margin-top:-35px;
+    }
+}
+@media screen and (max-width:375px){
+    .register-background{
+        width:280px;
+        height:520px;
+    }
+    .register-img{
+        height:80px;
+        width:80px;
+    }
+    .register-input{
+        width:200px;
+        margin-bottom:10px;
+    }
+    .register-head{
+        font-size:22px;
+    }
+    label{
+        font-size:14px;
     }
 }
 @media screen and(max-width:320px){
-    .register-form{
+    .register-input{
         width:200px;
-        padding:20px;
     }
-    .login-input{
-        width:200px;
+    .register-background{
+        width:240px;
     }
 }

@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import Cookies from 'js-cookie'
 import {FidgetSpinner} from 'react-loader-spinner'
 import axios from 'axios'
 import Header from '../Header'
@@ -15,11 +14,6 @@ const Register = ()=>{
     const [loading,setLoading] = useState(false)
     const navigate = useNavigate()
   
-    //status is successfull it will be redirected to posts
-    const onSuccess = jwtToken =>{
-        Cookies.set('jwt_token',jwtToken,{expires:30})
-        navigate('/posts')
-    }
    
     //after submitting it validates the new user credentials
     const onCredentials = async(event) =>{
@@ -30,40 +24,46 @@ const Register = ()=>{
         setError('')
         setLoading(prevState => !prevState)
         //if the password and confirm password is same it will fetch the data
-        if(password === confirmPassword){
+        if(password === confirmPassword && password !== "" && confirmPassword!==""){
             //try method will fetch the data if the username is not present in user Database
             try{
                 const loginUrl = "https://sharongameblog.onrender.com/register"
-                const response = await axios.post(loginUrl,userDetails)
+                await axios.post(loginUrl,userDetails)
                 setError('')
-                onSuccess(response.data.jwtToken)
+                navigate('/login')
             }
             //catch occurs when the username is already present in the dataBase and errorMessage occurs
             catch{
                 setLoading(prevState => !prevState)
                 setError("User already exists")
+                setname('')
+                setpassword('')
+                setconfirm('')
             }
         }
         //if the password is not Match errorMessage occurs
         else{
             setLoading(prevState => !prevState)
-            setError("password is not matched")
+            setError("password is mismatched or did't fill ")
+            setpassword('')
+            setconfirm('')
         }
-        
-        
     }
 
     //credentials of user,password,confirmPassword where user enters in input area
     const onUser = event =>{
             setname(event.target.value)
+            setError('')
         }
     
         const onPassword = event =>{
             setpassword(event.target.value)
+            setError('')
         }
     
         const onConfirm = event =>{
             setconfirm(event.target.value)
+            setError('')
         }
     
         const onLoading = ()=>(
@@ -73,26 +73,29 @@ const Register = ()=>{
         )
     
     return(
-        <>
+        <div>
         <Header/>
-        <div className='background'>
+        <div className='register-container'>
+        <div className='register-background'>
+            <img src="https://cdn.prod.website-files.com/6618fe1082001b3c60e5ad83/6647129899fa2558fe2b837b_HardcoreGamers-Blog-Header.webp" alt="login" className='register-img'/>
             <form className="register-form" onSubmit={onCredentials}>
-                <h1 className='login-head'>Register</h1>
+                <h1 className='register-head'>Register</h1>
                 <label htmlFor='username'>Username</label>
-                <input id="username" type="text" placeholder="Enter username" onChange={onUser} value={username} className='login-input'/>
+                <input id="username" type="text" placeholder="Enter username" onChange={onUser} value={username} className='register-input'/>
                 <label htmlFor='password'>password</label>
-                <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='login-input'/>
+                <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='register-input'/>
                 <label htmlFor='confirmpassword'>Confirm Password</label>
-                <input id = "confirmpassword" type="password" placeholder='Enter password' onChange={onConfirm} value={confirmPassword} className='login-input'/>
-                <center>
-                <button type="submit" className='register-button'>Register</button>
-                </center>
+                <input id = "confirmpassword" type="password" placeholder='Enter password' onChange={onConfirm} value={confirmPassword} className='register-input'/>
                 {loading?onLoading():null}
+                <center>
+                <button className="register-button" type="submit">Login</button>
+                </center>
                 {error===''?null:<p className='error'>{error}</p>}
-                <a href="http://localhost:3000/login" className='blink'>already a user?</a>
+                <a  href="http://localhost:3000/login" className='blink'>Already an user?</a>
             </form>
         </div>
-        </>
+        </div>
+        </div>
     )
 }
 

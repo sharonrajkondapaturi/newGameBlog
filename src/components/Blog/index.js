@@ -1,57 +1,54 @@
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import { FaCircleUser } from "react-icons/fa6";
 import { CiCalendarDate } from "react-icons/ci";
-import { FaRegClock } from "react-icons/fa";
 import Header from '../Header'
 import Comments from '../Comments'
+import Context from '../../context/Context.js'
 import './index.css'
 
 //Display The Blog
 const Blog = () => {
     const [post,setPost] = useState([])
     const [comment,setComment] = useState('')
-    const [commentCount,setCount] = useState('')
+    const {commentCount,setCount} = useContext(Context)
     const {id} = useParams()
     const jwtToken = Cookies.get('jwt_token')
-
-    const onRender = async() =>{
-        const postApiurl = `https://sharongameblog.onrender.com/posts/${id}`
-        const config = {
-            headers: {Authorization:`Bearer ${jwtToken}`}
-        }
-
-    const response = await axios.get(postApiurl,config)
-    const postDetails = response.data.map(eachResponse=>({
-        title:eachResponse.title,
-        genre:eachResponse.genre,
-        imageUrl:eachResponse.image_url,
-        content:eachResponse.content,
-        videoUrl:eachResponse.video_url,
-        publishedBy:eachResponse.published_by,
-        publishedDate:eachResponse.published_date,
-        publishedTime:eachResponse.published_time,
-        company:eachResponse.company,
-        officialWebsite:eachResponse.official_website
-    }))
-    setPost(...postDetails)
-    const commentCountApiUrl = `https://sharongameblog.onrender.com/comments/${id}`
-    const counts = await axios.get(commentCountApiUrl,config)
-    setCount(counts.data.comments_count)
-}
-
-const onNewComment = async(commentInput)=>{
     const config = {
         headers: {Authorization:`Bearer ${jwtToken}`}
     }
+
+    const onRender = async() =>{
+        const postApiurl = `https://sharongameblog.onrender.com/posts/${id}`
+        const response = await axios.get(postApiurl,config)
+        const postDetails = response.data.map(eachResponse=>({
+            title:eachResponse.title,
+            genre:eachResponse.genre,
+            imageUrl:eachResponse.image_url,
+            content:eachResponse.content,
+            videoUrl:eachResponse.video_url,
+            publishedBy:eachResponse.published_by,
+            publishedDate:eachResponse.published_date,
+        }))
+        setPost(...postDetails)
+   }     
+
+   const onRenderCount = async()=> {
+    const commentCountApiUrl = `https://sharongameblog.onrender.com/comments/${id}`
+    const counts = await axios.get(commentCountApiUrl,config)
+    setCount(counts.data.comments_count)
+   }
+
+const onNewComment = async(commentInput)=>{
     const newCommentData = {
         blog_id:id,
         comment:commentInput
     }
     const newCommentApiUrl = `https://sharongameblog.onrender.com/posts/${id}/comments/`
     await axios.post(newCommentApiUrl,newCommentData,config)
+    onRenderCount()
     setComment('')
 }
     
@@ -77,6 +74,11 @@ const onColorComment = (event)=>{
         onRender()
         // eslint-disable-next-line
     },[])
+
+    useEffect(()=>{
+        onRenderCount()
+        // eslint-disable-next-line
+    },[])
     
     return(
         <div className='blog'>
@@ -93,10 +95,6 @@ const onColorComment = (event)=>{
                 <article className='blog-details'>
                     <CiCalendarDate size={30} style={{paddingRight:10,paddingBottom:10}}/>
                     <span>{post.publishedDate}</span>
-                </article>
-                <article className='blog-details'>
-                    <FaRegClock size={30} style={{paddingRight:10,paddingBottom:10}}/>
-                    <span>{post.publishedTime}</span>
                 </article>
                 <article className='blog-details'>
                     <span style={{paddingRight:10}}>Genre:</span>

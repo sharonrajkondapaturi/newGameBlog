@@ -12,7 +12,6 @@ const EditPost = ()=>{
     const [genre,setGenre] = useState('')
     const [image,setImage] = useState('')
     const [video,setVideo] = useState('')
-    const [offWeb,setWeb] = useState('')
     const location = useLocation()
     const navigate = useNavigate()
     const {id} = useParams()
@@ -28,7 +27,6 @@ const EditPost = ()=>{
             title:title,
             content:content,
             genre:genre,
-            official_website:offWeb,
             image_url:image,
             video_url:video,
         }
@@ -58,23 +56,18 @@ const EditPost = ()=>{
         setVideo(event.target.value)
     }
 
-    const onWeb = event => {
-        setWeb(event.target.value)
-    }
-
     useEffect(()=>{
         setTitle(location.state.title)
         setContent(location.state.content)
         setImage(location.state.imageUrl)
         setVideo(location.state.videoUrl)
         setGenre(location.state.genre)
-        setWeb(location.state.officialWebsite)
         // eslint-disable-next-line
     },[location.state.title,location.state.content,location.state.imageUrl,location.state.videoUrl])
 
     const onRenderSuccess = ()=>(
         <form className='edit-post' onSubmit={onRender}>
-            <label htmlFor='title'>Title</label>
+            <label htmlFor='title'>Update Title</label>
             <textarea type="text" id = "title" className="title-text" value={title} onChange={onTitle}/>
             <label htmlFor='genre' style={{marginTop:10}} onChange={onGenre}>Game Type Genre</label>
             <select value={genre} onChange={onGenre}>
@@ -86,12 +79,10 @@ const EditPost = ()=>{
             </select>
             <label htmlFor='content'>Content</label>
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
-            <label htmlFor="image" style={{marginTop:10}}>Type Image Url</label>
+            <label htmlFor="image" style={{marginTop:10}}>Update Image Url</label>
             <input id="image" value={image} className='input-image' onChange={onImage}/>
-            <label id="video" style={{marginTop:10}}>Copy Embeded url</label>
+            <label id="video" style={{marginTop:10}}>Update Video Url</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
-            <label htmlFor="web" style={{marginTop:10}}>officialWebsite</label>
-            <input id="web" value={offWeb} className='input-image' onChange={onWeb}/>
             <button style={{marginTop:10}} type="submit">submit</button>
         </form>
     )

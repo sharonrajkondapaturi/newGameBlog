@@ -41,9 +41,6 @@ const UserPosts = ()=>{
                 videoUrl:eachResponse.video_url,
                 publishedBy:eachResponse.published_by,
                 publishedDate:eachResponse.published_date,
-                publishedTime:eachResponse.published_time,
-                company:eachResponse.company,
-                officialWebsite:eachResponse.official_website
             }))
             setApiStatus(apiStatus.success)
             setPost(postDetails)
@@ -64,7 +61,7 @@ const UserPosts = ()=>{
    
     //Loading Status
     const onRenderLoading = ()=>(
-        <div className="post-loading">
+        <div className="post-loading" style={{marginTop:100}}>
             <ThreeDots visible={true} height="80" width="80"/>
         </div>
     )
@@ -72,7 +69,7 @@ const UserPosts = ()=>{
 
     //When the data is successfully fetched
     const onRenderSuccess = () => (
-        <div>
+        <div style={{marginTop:100}}>
             {
             postDetails.length !== 0 ?
             <ul className='post-unlist'>

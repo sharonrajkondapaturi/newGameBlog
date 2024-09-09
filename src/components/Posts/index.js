@@ -41,9 +41,6 @@ const Posts = ()=>{
                 videoUrl:eachResponse.video_url,
                 publishedBy:eachResponse.published_by,
                 publishedDate:eachResponse.published_date,
-                publishedTime:eachResponse.published_time,
-                company:eachResponse.company,
-                officialWebsite:eachResponse.official_website
             }))
             setApiStatus(apiStatus.success)
             setPost(postDetails)

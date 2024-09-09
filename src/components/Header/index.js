@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState} from 'react'
 import Cookies from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -16,6 +16,7 @@ const Header = ()=>{
 
     const onLogout = () => {
         Cookies.remove('jwt_token')
+        localStorage.clear()
         navigate('/login')
     }
 

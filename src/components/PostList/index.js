@@ -8,9 +8,9 @@ import './index.css'
 //Used to display the list of post
 const PostList = props =>{
     const {posts,access} = props
-    const {id,title,imageUrl,publishedBy,publishedDate,content,videoUrl,genre,officialWebsite} = posts
+    const {id,title,imageUrl,publishedBy,publishedDate,content,videoUrl,genre,} = posts
     const postData = {
-        id,title,imageUrl,content,videoUrl,genre,officialWebsite
+        id,title,imageUrl,content,videoUrl,genre
     }
     const navigate = useNavigate()
     
