@@ -11,6 +11,7 @@ import NewPost from './components/NewPost'
 import ProtectedRoute from './components/ProtectedRoutes';
 import Context from './context/Context.js'
 import './App.css';
+import UserDetails from './components/UserDetails/index.js';
 
 //there are the routes which has private and public routes
 const App = ()=>{
@@ -30,6 +31,7 @@ const App = ()=>{
       <Route path="/posts" element={<Posts/>}/>
       <Route path="/posts/:id" element={<Blog/>}/>
       <Route element={<ProtectedRoute/>}>
+          <Route path="/userDetails" element={<UserDetails/>}/>
           <Route path="/newpost" element={<NewPost/>}/>
           <Route path="/editpost/:id" element={<EditPost/>}/>
           <Route path="/userposts" element={<UserPosts/>}/>

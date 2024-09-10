@@ -74,7 +74,7 @@ const Posts = ()=>{
             postDetails.length !== 0 ?
             <ul className='post-unlist'>
             {postDetails.map(eachPost=>
-                <PostList key={eachPost.id} posts={eachPost} access={true} onRenderSuccess={onRenderSuccess}/>
+                <PostList key={eachPost.id} posts={eachPost}/>
             )}
             </ul>:(
                 <div className='empty-failure-list'>

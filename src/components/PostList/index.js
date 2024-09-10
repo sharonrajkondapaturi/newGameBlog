@@ -7,7 +7,7 @@ import './index.css'
 
 //Used to display the list of post
 const PostList = (props) =>{
-    const {posts,access} = props
+    const {posts,access,onDeleteRender} = props
     const {id,title,imageUrl,publishedBy,publishedDate,content,videoUrl,genre} = posts
     const postData = {
         id,title,imageUrl,content,videoUrl,genre
@@ -27,7 +27,7 @@ const PostList = (props) =>{
             headers: {Authorization:`Bearer ${jwtToken}`} 
         }
         await axios.delete(deletePostApiUrl,config)
-        window.location.reload()
+        onDeleteRender()
     }
     
     //used to edit the post
@@ -44,7 +44,7 @@ const PostList = (props) =>{
                 <h1 className='post-title'>{title}</h1>
                 <p className="publish">PublishedBy: {publishedBy}</p>
                 <p className='publish'>PublishedDate: {publishedDate}</p>
-                {access?(
+                {access===true?(
                 <article className='button-rows'>
                     <Link to= {`/editpost/${id}`} state={postData} style={{textDecoration:"none",padding:0}}>
                     <button type="button" className='edit-button' onClick={onEdit} >

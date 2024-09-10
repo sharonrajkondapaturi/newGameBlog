@@ -12,6 +12,7 @@ a{
     text-decoration: none;
     padding: 12px 12px;
     font-size:15px;
+    font-weight:500;
 }
 li{
     cursor: pointer;
@@ -28,6 +29,21 @@ li{
 }
 .mobile-right{
     display: none;
+}
+.round-profile{
+    border-radius: 100%;
+    height:35px;
+    width:35px;
+    background-color: #eb7734;
+    font-weight:510;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+}
+.round-profile:hover{
+    background-color: #963284;
 }
 nav:nth-child(2){
     ul:nth-child(1){
@@ -143,6 +159,7 @@ nav:nth-child(3){
         border-radius: 7px;
         cursor:pointer;
         font-size: 10px;
+        margin-left: 10px;
     }
     nav:nth-child(2){
         display: none;

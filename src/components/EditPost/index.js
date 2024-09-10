@@ -30,8 +30,14 @@ const EditPost = ()=>{
             image_url:image,
             video_url:video,
         }
-        await axios.put(postApiurl,postData,config)
-        navigate('/userposts')
+        if(content === "" && genre === "" && image === "" && title === ""){
+            await axios.put(postApiurl,postData,config)
+            navigate('/userposts')
+        }
+        else{
+            alert("Seems like one of the details is Empty")
+        }
+        
     }
 
     //Below aere triggered while editing the blog
@@ -56,6 +62,10 @@ const EditPost = ()=>{
         setVideo(event.target.value)
     }
 
+    const star = () => (
+        <span style={{color:"#ed154f",fontWeight:'bolder'}}>*</span>
+    )
+
     useEffect(()=>{
         setTitle(location.state.title)
         setContent(location.state.content)
@@ -67,9 +77,9 @@ const EditPost = ()=>{
 
     const onRenderSuccess = ()=>(
         <form className='edit-post' onSubmit={onRender}>
-            <label htmlFor='title'>Update Title</label>
+            <label htmlFor='title'>Update Title {star()}</label>
             <textarea type="text" id = "title" className="title-text" value={title} onChange={onTitle}/>
-            <label htmlFor='genre' style={{marginTop:10}} onChange={onGenre}>Game Type Genre</label>
+            <label htmlFor='genre' style={{marginTop:10}} onChange={onGenre}>Game Type Genre {star()}</label>
             <select value={genre} onChange={onGenre}>
                 <option value="Action">Action</option>
                 <option value="Adventure">Adventure</option>
@@ -77,11 +87,11 @@ const EditPost = ()=>{
                 <option value="Action-Adventure-Stealth">Action-Adventure-Stealth</option>
                 <option value="Survival Horror">Survival Horror</option>
             </select>
-            <label htmlFor='content'>Content</label>
+            <label htmlFor='content'>Content {star()}</label>
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
-            <label htmlFor="image" style={{marginTop:10}}>Update Image Url</label>
+            <label htmlFor="image" style={{marginTop:10}}>Update Image Url {star()}</label>
             <input id="image" value={image} className='input-image' onChange={onImage}/>
-            <label id="video" style={{marginTop:10}}>Update Video Url</label>
+            <label id="video" style={{marginTop:10}}>Update Video Url {star()}</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
             <button style={{marginTop:10}} type="submit" className='update-post-button'>Update Post</button>
         </form>
@@ -89,10 +99,12 @@ const EditPost = ()=>{
 
 
     return(
-        <div>
+        <>
+        <div className='wall'>
             <Header/>
             {onRenderSuccess()}
         </div>
+        </>
     )
 }
 

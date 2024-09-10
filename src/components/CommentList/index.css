@@ -66,6 +66,25 @@
 .edit-rows{
     margin-bottom:10px;
 }
+@media screen and (max-width:991px) {
+    .comment-edit-input{
+        width:450px;
+        font-size: 14px;
+    }
+    .confirm-button{
+        font-size: 16px;
+        width: 75px;
+    }
+}
+@media screen and (max-width:767px) {
+    .comment-edit-input{
+        width:300px;
+        font-size: 14px;
+    }
+    .confirm-button{
+        font-size: 14px;
+    }
+}
 @media screen and (max-width:575px){
     .user-name{
         font-size:16px;
@@ -73,9 +92,25 @@
     .comment-para{
         font-size:13px;
     }
+    .comment-edit-input{
+        width:200px;
+        font-size: 14px;
+    }
+    .confirm-button{
+        width:60px;
+        font-size: 12px;
+    }
 }
 @media screen and (max-width:375px) {
     .user-name{
         font-size:14px;
+    }
+    .comment-edit-input{
+        width:180px;
+        font-size: 11px;
+    }
+    .confirm-button{
+        width:50px;
+        font-size: 10px;
     }
 }

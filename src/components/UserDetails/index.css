@@ -1,0 +1,76 @@
+.details-back{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    min-height:100vh;
+}
+.user-profile-background{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius:15px;
+    width:400px;
+    padding:20px;
+    animation-name:slideDown;
+    animation-duration: 2.5s;
+}
+.line-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    transition: 1s;
+}
+.line-row:hover{
+    font-size:18px;
+}
+@keyframes slideDown {
+    from{
+        margin-top:-250px;
+    }
+    to{
+        margin-top:0px;
+    }
+}
+.user-detail-profile{
+    width:60px;
+    height:60px;
+    align-content: center;
+    margin-bottom:8px;
+}
+.logout-user{
+    width:100px;
+    background-color: #3b64d4;
+    border-radius:10px;
+    border:none;
+    color:#fff;
+    padding:8px;
+    font-weight: bold;
+    transition:1s;
+    cursor:pointer;
+    margin-left:10px;
+    transition: 1s;
+    margin-top:8px;
+}
+.logout-user:hover{
+    background-color: #d61515;
+}
+.span-up{
+    font-size:18px;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+.style-up{
+    font-weight:510;
+    margin:10px;
+}
+@media screen and (max-width:575px){
+    .user-profile-background{
+        width:250px;
+    }
+}
+@media screen and (max-width:375px){
+    .user-profile-background{
+        width:200px;
+    }
+}

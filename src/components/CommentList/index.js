@@ -29,9 +29,16 @@ const CommentList = (props)=>{
         const editComment = {
             comment:tempComment
         }
-        await axios.put(commentEditApiUrl,editComment,config)
-        onRenderComment()
-        setEdit(prevState=>!prevState)
+        if(tempComment.length > 0 && tempComment[0] === " "){
+            await axios.put(commentEditApiUrl,editComment,config)
+            onRenderComment()
+            setEdit(prevState=>!prevState)
+        }
+        else{
+            alert("Comment Should be Edited or Delete")
+            setEdit(prevState=>!prevState)
+        }
+        
     }
 
     const onDelete = async()=>{

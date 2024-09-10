@@ -55,6 +55,10 @@ const UserPosts = ()=>{
         }
     }
 
+    const onDeleteRender = ()=>{
+        onRender()
+    }
+
     const onNewPost = () => {
         navigate('/newpost')
     }
@@ -74,7 +78,7 @@ const UserPosts = ()=>{
             postDetails.length !== 0 ?
             <ul className='post-unlist'>
             {postDetails.map(eachPost=>
-                <PostList key={eachPost.id} posts={eachPost} access={true}/>
+                <PostList key={eachPost.id} posts={eachPost} access={true} onDeleteRender={onDeleteRender}/>
             )}
             </ul>:(
                 <div className='empty-failure-list'>

@@ -7,8 +7,10 @@ import './index.css'
 //This is the Header of the blog which is fixed every page
 const Header = ()=>{
     const [ham,setHam] = useState(false)
+    const token = Cookies.get('jwt_token')
     const navigate = useNavigate()
-  
+    const name = localStorage.getItem("username")
+
     //the below functions will triger the route pages
     const onHam = ()=>{
         setHam(prevState=>!prevState)
@@ -41,6 +43,10 @@ const Header = ()=>{
     const onRegister = () => {
         navigate('/register')
     }
+
+    const onDetails = () => {
+        navigate('/userDetails')
+    }
     
     return(
         <header>
@@ -65,16 +71,19 @@ const Header = ()=>{
             </nav>
             <nav>
                 <ul>
-                    <li><a onClick={onRegister}>Register</a></li>
-                    <li><a onClick={onlogin}>Login</a></li>
-                    <li><button onClick={onLogout} className='logout-button'>Logout</button></li>
+                    {token !== undefined?null:<li><a onClick={onRegister}>Register</a></li>}
+                    {token !== undefined?null:<li><a onClick={onlogin}>Login</a></li>}
+                    {token !== undefined?<div className='round-profile' onClick={onDetails}>{name[0].toUpperCase()}</div>:null}
+                    {token !== undefined?<button onClick={onLogout} className='logout-button'>Logout</button>:null}
+
                 </ul>
             </nav>
             <nav className='mobile-nav'>
                 <ul className='mobile-right'>
-                <li><a onClick={onRegister}>Register</a></li>
-                <li><a onClick={onlogin}>Login</a></li>
-                <li><button onClick={onLogout} className='mobile-button'>Logout</button></li>
+                {token !== undefined?null:<li><a onClick={onRegister}>Register</a></li>}
+                {token !== undefined?null:<li><a onClick={onlogin}>Login</a></li>}
+                {token !== undefined?<div className='round-profile' onClick={onDetails}>{name[0].toUpperCase()}</div>:null}
+                {token !== undefined?<button onClick={onLogout} className='mobile-button'>Logout</button>:null}
                 </ul>
             </nav>
         </header>

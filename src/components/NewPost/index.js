@@ -27,9 +27,15 @@ const NewPost = ()=>{
             image_url:image,
             video_url:video,
         }
-        const response = await axios.post(postApiurl,postData,config)
-        console.log(response)
-        navigate('/userposts')
+        if(content === "" && genre === "" && image === "" && title === ""){
+            const response = await axios.post(postApiurl,postData,config)
+            console.log(response)
+            navigate('/userposts')
+        }
+        else{
+            alert("Fill the details")
+        }
+        
     }
 
     const onTitle = event => {
@@ -52,11 +58,15 @@ const NewPost = ()=>{
         setVideo(event.target.value)
     }
 
+    const star = () => (
+        <span style={{color:"#ed154f",fontWeight:'bolder'}}>*</span>
+    )
+
     const onRenderSuccess = ()=>(
         <form className='edit-post' onSubmit={onRender}>
-            <label htmlFor='title'>Title</label>
+            <label htmlFor='title'>Title {star()}</label>
             <textarea type="text" id = "title" className="title-text" value={title} onChange={onTitle}/>
-            <label htmlFor='genre' style={{marginTop:10}} onChange={onGenre}>Game Type Genre</label>
+            <label htmlFor='genre' style={{marginTop:10}} onChange={onGenre}>Game Type Genre {star()}</label>
             <select value={genre} onChange={onGenre}>
                 <option value="Action">Action</option>
                 <option value="Adventure">Adventure</option>
@@ -64,11 +74,11 @@ const NewPost = ()=>{
                 <option value="Action-Adventure-Stealth">Action-Adventure-Stealth</option>
                 <option value="Survival Horror">Survival Horror</option>
             </select>
-            <label htmlFor='content' style={{marginTop:10}}>Content</label>
+            <label htmlFor='content' style={{marginTop:10}}>Content {star()}</label>
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
-            <label htmlFor="image" style={{marginTop:10}}>Type Image Url</label>
+            <label htmlFor="image" style={{marginTop:10}}>Type Image Url {star()}</label>
             <input id="image" value={image} className='input-image' onChange={onImage}/>
-            <label id="video" style={{marginTop:10}}>Type Video url</label>
+            <label id="video" style={{marginTop:10}}>Type Video url (Optional)</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
             <button type="submit" style={{marginTop:10}} className='add-post-button'>Add Post</button>
         </form>
@@ -76,10 +86,12 @@ const NewPost = ()=>{
 
 
     return(
-        <div>
+        <>
             <Header/>
-            {onRenderSuccess()}
-        </div>
+            <div className='wall'>
+               {onRenderSuccess()}  
+            </div>
+        </>
     )
 }
 
