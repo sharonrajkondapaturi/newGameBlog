@@ -30,7 +30,7 @@ const EditPost = ()=>{
             image_url:image,
             video_url:video,
         }
-        if(content === "" && genre === "" && image === "" && title === ""){
+        if(content !== "" && genre !== "" && image !== "" && title !== ""){
             await axios.put(postApiurl,postData,config)
             navigate('/userposts')
         }

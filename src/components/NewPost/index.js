@@ -27,7 +27,7 @@ const NewPost = ()=>{
             image_url:image,
             video_url:video,
         }
-        if(content === "" && genre === "" && image === "" && title === ""){
+        if(content !== "" && genre !== "" && image !== "" && title !== ""){
             const response = await axios.post(postApiurl,postData,config)
             console.log(response)
             navigate('/userposts')

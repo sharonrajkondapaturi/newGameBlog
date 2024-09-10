@@ -29,7 +29,7 @@ const CommentList = (props)=>{
         const editComment = {
             comment:tempComment
         }
-        if(tempComment.length > 0 && tempComment[0] === " "){
+        if(tempComment.length > 0 && tempComment[0] !== " "){
             await axios.put(commentEditApiUrl,editComment,config)
             onRenderComment()
             setEdit(prevState=>!prevState)
