@@ -5,7 +5,7 @@ import axios from 'axios'
 import './index.css'
 
 const CommentList = (props)=>{
-    const {commentDetails,commentRender} = props
+    const {commentDetails,onRenderComment} = props
     const {id,blogId,username,commentDate,comment} = commentDetails
     const [tempComment,setTempComment] = useState(comment)
     const [isEdited,setEdit] = useState(false)
@@ -30,7 +30,7 @@ const CommentList = (props)=>{
             comment:tempComment
         }
         await axios.put(commentEditApiUrl,editComment,config)
-        commentRender()
+        onRenderComment()
         setEdit(prevState=>!prevState)
     }
 
@@ -41,12 +41,13 @@ const CommentList = (props)=>{
             headers: {Authorization:`Bearer ${jwtToken}`}
         }
         await axios.delete(commentDeleteApiUrl,config)
-        commentRender()
+        onRenderComment()
     }
 
     const commentChange = ()=>(
         <>
-            {isEdited?null:(<div>
+        {isEdited?null:(
+        <div className="edit-rows">
             <button type="button" className='comment-change-edit' onClick={onEdit}>Edit</button>
             <button type="button" className='comment-change-delete' onClick={onDelete}>Delete</button>
         </div>)}

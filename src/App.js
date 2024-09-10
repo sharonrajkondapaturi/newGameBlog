@@ -15,13 +15,13 @@ import './App.css';
 //there are the routes which has private and public routes
 const App = ()=>{
   let commentRendering = (()=>{
-
+    
   });
 
-  const [commentCount,setCount] = useState('')
+  const [commentDetails,setCommentDetails] = useState([])
 
   return(
-  <Context.Provider value={{commentRendering,commentCount,setCount}}>
+  <Context.Provider value={{commentRendering,commentDetails,setCommentDetails}}>
   <BrowserRouter>
   <Routes>
       <Route path="/" element={<Home/>}/>

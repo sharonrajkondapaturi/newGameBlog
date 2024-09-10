@@ -1,4 +1,4 @@
-import {useState,useEffect,useContext} from 'react'
+import {useEffect,useContext} from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import CommentList from '../CommentList'
@@ -6,11 +6,8 @@ import Context from '../../context/Context.js'
 import './index.css'
 
 const Comments = (props)=>{
-    const {blogId} = props
-    const [commentDetails,setCommentDetails] = useState([])
-    const [commentStatement,setCommentState] = useState(false)
-    const {setCount} = useContext(Context)
-    let {commentRendering} = useContext(Context)
+    const {blogId,onRenderCount,count} = props
+    const {commentDetails,setCommentDetails} = useContext(Context)
     const jwtToken = Cookies.get('jwt_token')
     const config = {
         headers: {Authorization:`Bearer ${jwtToken}`}
@@ -27,38 +24,24 @@ const Comments = (props)=>{
             comment:eachComment.comment,
             commentDate:eachComment.comment_date
         }))
-        try{
-            if(commentData.length !== 0){
-                setCommentDetails(commentData)
-                setCommentState(true)
-                commentRendering()
-                onRenderCount()
-            }
-        }
-        catch{
-            setCommentState(false)
-        }
+        setCommentDetails(commentData)
+        onRenderCounting()
     }
 
-    const onRenderCount = async()=> {
+    const onRenderCounting = async()=> {
         const commentCountApiUrl = `https://sharongameblog.onrender.com/comments/${blogId}`
-        const counts = await axios.get(commentCountApiUrl,config)
-        setCount(counts.data.comments_count)
-       }
+        await axios.get(commentCountApiUrl,config)
+        //below is a prop
+        onRenderCount()
+    }
 
-    
-
-//render the comment details
-    commentRendering = (()=>{
-        onRenderComment()
-    })
 
 //render the comment List
     const commentList = ()=>(
         <ul className='comment-unlist'>
         {
             commentDetails.map(eachDetail=>
-            <CommentList key={eachDetail.id} commentDetails={eachDetail} commentRender={onRenderComment}/>
+            <CommentList key={eachDetail.id} commentDetails={eachDetail} onRenderComment={onRenderComment}/>
         )
         }
         </ul>
@@ -76,7 +59,7 @@ const Comments = (props)=>{
     return(
         <>
         {
-            commentStatement?commentList():noComment()
+            count>0?commentList():noComment()
         }
         </>
     )

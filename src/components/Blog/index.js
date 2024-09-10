@@ -1,10 +1,10 @@
-import {useState,useEffect,useContext} from 'react'
-import Cookies from 'js-cookie'
-import axios from 'axios'
-import {useParams} from 'react-router-dom'
+import {useState,useEffect,useContext} from 'react';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import {useParams} from 'react-router-dom';
 import { FaCircleUser } from "react-icons/fa6";
 import { CiCalendarDate } from "react-icons/ci";
-import Header from '../Header'
+import Header from '../Header';
 import Comments from '../Comments'
 import Context from '../../context/Context.js'
 import './index.css'
@@ -13,11 +13,32 @@ import './index.css'
 const Blog = () => {
     const [post,setPost] = useState([])
     const [comment,setComment] = useState('')
-    const {commentCount,setCount} = useContext(Context)
+    const [commentCount,setCount] = useState('')
     const {id} = useParams()
     const jwtToken = Cookies.get('jwt_token')
+    const {setCommentDetails} = useContext(Context)
+    let {commentRendering} = useContext(Context)
     const config = {
         headers: {Authorization:`Bearer ${jwtToken}`}
+    }
+
+    commentRendering = async()=>{
+        const commentApiUrl = `https://sharongameblog.onrender.com/posts/${id}/comments/`
+        const responseComment = await axios.get(commentApiUrl)
+        const commentData = responseComment.data.map(eachComment=>({
+            id:eachComment.id,
+            userId:eachComment.user_id,
+            blogId:eachComment.blog_id,
+            username:eachComment.username,
+            comment:eachComment.comment,
+            commentDate:eachComment.comment_date
+        }))
+        if(commentData.length !== 0){
+            setCommentDetails(commentData)
+        }
+        else{
+            setCommentDetails([])
+        }
     }
 
     const onRender = async() =>{
@@ -50,6 +71,7 @@ const onNewComment = async(commentInput)=>{
     await axios.post(newCommentApiUrl,newCommentData,config)
     onRenderCount()
     setComment('')
+    commentRendering()
 }
     
 const onCancel = ()=>{
@@ -60,8 +82,12 @@ const onComment = ()=>{
     if(comment.length === 0){
         setComment('')
     }
-    else{
+    else if(jwtToken !== undefined){
         onNewComment(comment)
+    }
+    else{
+        alert("Kindly Register or Login in order to comment")
+        setComment('')
     }
 }
 
@@ -77,6 +103,10 @@ const onColorComment = (event)=>{
 
     useEffect(()=>{
         onRenderCount()
+        // eslint-disable-next-line
+    },[])
+    useEffect(()=>{
+        commentRendering()
         // eslint-disable-next-line
     },[])
     
@@ -116,7 +146,7 @@ const onColorComment = (event)=>{
                 </article>
             </section>
             <section>
-                <Comments blogId={id}/>
+                <Comments blogId={id} onRenderCount={onRenderCount} count={commentCount}/>
             </section>
         </div>
     )

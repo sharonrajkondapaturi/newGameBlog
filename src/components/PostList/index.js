@@ -1,4 +1,4 @@
-import { Link,useNavigate } from 'react-router-dom'
+import { Link,useNavigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import { MdDelete } from "react-icons/md";
@@ -6,14 +6,14 @@ import { FaEdit } from "react-icons/fa";
 import './index.css'
 
 //Used to display the list of post
-const PostList = props =>{
+const PostList = (props) =>{
     const {posts,access} = props
-    const {id,title,imageUrl,publishedBy,publishedDate,content,videoUrl,genre,} = posts
+    const {id,title,imageUrl,publishedBy,publishedDate,content,videoUrl,genre} = posts
     const postData = {
         id,title,imageUrl,content,videoUrl,genre
     }
     const navigate = useNavigate()
-    
+
     //redirect's to the blog details
     const onRedirect = () =>{
         navigate(`/posts/${id}`)
@@ -27,7 +27,7 @@ const PostList = props =>{
             headers: {Authorization:`Bearer ${jwtToken}`} 
         }
         await axios.delete(deletePostApiUrl,config)
-        navigate('/posts')
+        window.location.reload()
     }
     
     //used to edit the post

@@ -83,7 +83,7 @@ const EditPost = ()=>{
             <input id="image" value={image} className='input-image' onChange={onImage}/>
             <label id="video" style={{marginTop:10}}>Update Video Url</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
-            <button style={{marginTop:10}} type="submit">submit</button>
+            <button style={{marginTop:10}} type="submit" className='update-post-button'>Update Post</button>
         </form>
     )
 

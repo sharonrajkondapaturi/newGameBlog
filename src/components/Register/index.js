@@ -67,7 +67,7 @@ const Register = ()=>{
         }
     
         const onLoading = ()=>(
-            <center style={{marginTop:10}}>
+            <center style={{marginTop:10,marginBottom:10}}>
                 <FidgetSpinner visible={true} height="30" width="30" ariaLabel="fidget-spinner-loading" wrapperStyle={{}} wrapperClass="fidget-spinner-wrapper"/>
             </center>
         )

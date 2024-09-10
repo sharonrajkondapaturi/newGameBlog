@@ -36,6 +36,16 @@ select{
 label{
     color:#000;
 }
+.add-post-button{
+    background-color:#2e62e6;
+    padding:6px;
+    color:#fff;
+    border:none;
+    border-radius:7px;
+    width:90px;
+    font-weight: 510;
+
+}
 @media screen and (max-width:575px){
     .title-text{
         width:320px;

@@ -22,7 +22,8 @@ const Posts = ()=>{
     const [postDetails,setPost] = useState([])
     const navigate = useNavigate()
 
-    const onRender = async()=>{
+//render the post details
+    const postRendering = async()=>{
         setApiStatus(apiStatus.loading)
         const postApiurl = `https://sharongameblog.onrender.com/posts/?title=${title}`
         const jwtToken = Cookies.get('jwt_token')
@@ -73,7 +74,7 @@ const Posts = ()=>{
             postDetails.length !== 0 ?
             <ul className='post-unlist'>
             {postDetails.map(eachPost=>
-                <PostList key={eachPost.id} posts={eachPost} access={true}/>
+                <PostList key={eachPost.id} posts={eachPost} access={true} onRenderSuccess={onRenderSuccess}/>
             )}
             </ul>:(
                 <div className='empty-failure-list'>
@@ -89,7 +90,7 @@ const Posts = ()=>{
     const onRenderFailure = () => (
         <div className='empty-failure-list'>
         <img style={{width:300,height:300,marginBottom:40}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcKcoquPvJ-O9WfgEYiUF34hYhzaGcrtamQ&s" alt="failure-image"/>
-        <button type="button" onClick={onRender} className='empty-button'>Retry</button>
+        <button type="button" onClick={postRendering} className='empty-button'>Retry</button>
         </div>
     )
 
@@ -109,7 +110,7 @@ const Posts = ()=>{
     }
 
     useEffect(()=>{
-        onRender()
+        postRendering()
         // eslint-disable-next-line
     },[title])
 return(

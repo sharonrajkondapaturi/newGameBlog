@@ -8,7 +8,7 @@ import './index.css'
 const NewPost = ()=>{
     const [title,setTitle] = useState('')
     const [content,setContent] = useState('')
-    const [genre,setGenre] = useState('')
+    const [genre,setGenre] = useState('Action')
     const [image,setImage] = useState('')
     const [video,setVideo] = useState('')
     const navigate = useNavigate()
@@ -27,7 +27,6 @@ const NewPost = ()=>{
             image_url:image,
             video_url:video,
         }
-        console.log(postData)
         const response = await axios.post(postApiurl,postData,config)
         console.log(response)
         navigate('/userposts')
@@ -71,7 +70,7 @@ const NewPost = ()=>{
             <input id="image" value={image} className='input-image' onChange={onImage}/>
             <label id="video" style={{marginTop:10}}>Type Video url</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
-            <button type="submit" style={{marginTop:10}}>submit</button>
+            <button type="submit" style={{marginTop:10}} className='add-post-button'>Add Post</button>
         </form>
     )
 
