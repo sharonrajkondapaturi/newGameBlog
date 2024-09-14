@@ -16,8 +16,7 @@
 }
 .login-head{
     text-align: center;
-    font-size:2rem;
-    font-family: cursive;
+    font-size:25px;
 }
 .login-img{
     height:500px;
@@ -34,8 +33,7 @@
 .title{
     margin-bottom: 10px;
     font-weight: bold;
-    font-family: cursive;
-    font-size:18px;
+    font-size:16px;
     color:#000;
 }
 .login-input{

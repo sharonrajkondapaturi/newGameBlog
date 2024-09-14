@@ -16,8 +16,7 @@
 }
 .register-head{
     text-align: center;
-    font-size:2rem;
-    font-family: cursive;
+    font-size:25px;
 }
 .register-img{
     height:600px;
@@ -35,8 +34,7 @@
     margin-top:0px;
     margin-bottom: 10px;
     font-weight: bold;
-    font-family: cursive;
-    font-size:18px;
+    font-size:16px;
     color:#000;
 }
 .register-input{
