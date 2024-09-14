@@ -31,12 +31,13 @@
     padding:40px;
     margin-top:50px;
 }
-label{
+.title{
+    margin-top:0px;
     margin-bottom: 10px;
     font-weight: bold;
     font-family: cursive;
     font-size:18px;
-    color:#fff;
+    color:#000;
 }
 .register-input{
     width:300px;
@@ -44,7 +45,7 @@ label{
     padding: 8px;
     border:1px solid #000;
     border-radius:10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .register-button{
     width:100px;
@@ -56,6 +57,12 @@ label{
     font-weight: bold;
     transition:1s;
     cursor:pointer;
+}
+.register-error{
+    color:#f0163e;
+    font-size:13px;
+    font-weight:400;
+    margin-top:1px;
 }
 .register-button:hover{
     background-color: #f0163e;
@@ -81,7 +88,7 @@ label{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height:720px;
+        height:750px;
         width:500px;
     }
     .register-img{
@@ -120,11 +127,15 @@ label{
 @media screen and (max-width:375px){
     .register-background{
         width:280px;
-        height:520px;
+        height:550px;
+    }
+    .register-form{
+        padding:10px;
     }
     .register-img{
         height:80px;
         width:80px;
+        margin-bottom:10px;
     }
     .register-input{
         width:200px;
@@ -136,6 +147,9 @@ label{
     label{
         font-size:14px;
     }
+    .error{
+        margin:5px;
+    }
 }
 @media screen and(max-width:320px){
     .register-input{
@@ -143,5 +157,8 @@ label{
     }
     .register-background{
         width:240px;
+    }
+    .register-input{
+        padding:4px;
     }
 }

@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import {FidgetSpinner} from 'react-loader-spinner'
 import {useNavigate} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
@@ -11,6 +12,9 @@ const NewPost = ()=>{
     const [genre,setGenre] = useState('Action')
     const [image,setImage] = useState('')
     const [video,setVideo] = useState('')
+    const [titleError,setTitleError] = useState('')
+    const [contentError,setContentError] = useState('')
+    const [loading,setLoading] = useState(false)
     const navigate = useNavigate()
 
     const onRender = async(event)=>{
@@ -28,9 +32,23 @@ const NewPost = ()=>{
             video_url:video,
         }
         if(content !== "" && genre !== "" && image !== "" && title !== ""){
-            const response = await axios.post(postApiurl,postData,config)
-            console.log(response)
-            navigate('/userposts')
+            if(title.length < 10 && content.length < 100){
+                setTitleError(true)
+                setContentError(true)
+            }
+            else if(title.length < 10){
+                setTitleError(true)
+                setContentError(false)
+            }
+            else if(content.length < 100){
+                setTitleError(false)
+                setContentError(true)
+            }
+            else{
+                setLoading(true)
+                await axios.post(postApiurl,postData,config)
+                navigate('/userposts')
+            } 
         }
         else{
             alert("Fill the details")
@@ -62,10 +80,17 @@ const NewPost = ()=>{
         <span style={{color:"#ed154f",fontWeight:'bolder'}}>*</span>
     )
 
+    const onLoading = ()=>(
+        <center style={{marginTop:10,marginBottom:10}}>
+            <FidgetSpinner visible={true} height="30" width="30" ariaLabel="fidget-spinner-loading" wrapperStyle={{}} wrapperClass="fidget-spinner-wrapper"/>
+        </center>
+    )
+
     const onRenderSuccess = ()=>(
         <form className='edit-post' onSubmit={onRender}>
             <label htmlFor='title'>Title {star()}</label>
             <textarea type="text" id = "title" className="title-text" value={title} onChange={onTitle}/>
+            {titleError?<p className='register-error'>* Title length should be minium 10</p>:null}
             <label htmlFor='genre' style={{marginTop:10}} onChange={onGenre}>Game Type Genre {star()}</label>
             <select value={genre} onChange={onGenre}>
                 <option value="Action">Action</option>
@@ -76,10 +101,12 @@ const NewPost = ()=>{
             </select>
             <label htmlFor='content' style={{marginTop:10}}>Content {star()}</label>
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
+            {contentError?<p className='register-error'>* Content length should be minium 100</p>:null}
             <label htmlFor="image" style={{marginTop:10}}>Type Image Url {star()}</label>
             <input id="image" value={image} className='input-image' onChange={onImage}/>
             <label id="video" style={{marginTop:10}}>Type Video url (Optional)</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
+            {loading?onLoading():null}
             <button type="submit" style={{marginTop:10}} className='add-post-button'>Add Post</button>
         </form>
     )

@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import {FidgetSpinner} from 'react-loader-spinner'
 import axios from 'axios'
@@ -39,18 +39,35 @@ const Login = ()=>{
         }
         setError('')
         setLoading(prevState=>!prevState)
-
-        try{
-            const loginApiUrl = `https://sharongameblog.onrender.com/login`
-            const response = await axios.post(loginApiUrl,userDetails)
-            onSuccess(response.data.jwtToken)
-        }
-        catch{
+        //if the credential were right it will go to try state or else catch before it checks user and password conditions
+        if(username === '' && password === ''){
+            setError('* Credentials were missing')
             setLoading(prevState => !prevState)
-            setError("Invalid username or password")
-            setname('')
-            setpassword('')
         }
+        else if(username === ''){
+            setLoading(prevState => !prevState)
+            setError('* username is missing')
+        }
+        else if(password === ''){
+            setLoading(prevState => !prevState)
+            setError('* password is missing')
+        }
+        else{
+            try{
+                const loginApiUrl = `https://sharongameblog.onrender.com/login`
+                const response = await axios.post(loginApiUrl,userDetails)
+                setLoading(prevState => !prevState)
+                setError('')
+                onSuccess(response.data.jwtToken)
+            }
+            catch{
+                setLoading(prevState => !prevState)
+                setError("Invalid username or password")
+                setname('')
+                setpassword('')
+            }
+        }
+        
     }
 
     //loading the data 
@@ -58,6 +75,11 @@ const Login = ()=>{
         <center style={{marginTop:10,marginBottom:10}}>
             <FidgetSpinner visible={true} height="30" width="30" ariaLabel="fidget-spinner-loading" wrapperStyle={{}} wrapperClass="fidget-spinner-wrapper"/>
         </center>
+    )
+
+    //aestrik mark
+    const star = () => (
+        <span style={{color:"#ed154f",fontWeight:'bolder'}}>*</span>
     )
 
     return(
@@ -68,16 +90,16 @@ const Login = ()=>{
             <img src="https://cdn.prod.website-files.com/6618fe1082001b3c60e5ad83/6647129899fa2558fe2b837b_HardcoreGamers-Blog-Header.webp" alt="login" className='login-img'/>
             <form className="login-form" onSubmit={onVerify}>
                 <h1 className='login-head'>Login</h1>
-                <label htmlFor='username'>Username</label>
+                <label className='title' htmlFor='username'>Username {star()}</label>
                 <input id="username" type="text" placeholder="Enter username" onChange={onUser} value={username} className='login-input'/>
-                <label htmlFor='password'>password</label>
+                <label className='title' htmlFor='password'>password {star()}</label>
                 <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='login-input'/>
                 {loading?onLoading():null}
                 <center>
                 <button className="login-button" type="submit">Login</button>
                 </center>
                 {error===''?null:<p className='error'>{error}</p>}
-                <a href="http://localhost:3000/register" className='blink'>Are you a new user?</a>
+                <Link to="http://localhost:3000/register" className='blink'>Are you a new user?</Link>
             </form>
         </div>
         </div>

@@ -31,12 +31,12 @@
     padding:40px;
     margin-top:50px;
 }
-label{
+.title{
     margin-bottom: 10px;
     font-weight: bold;
     font-family: cursive;
     font-size:18px;
-    color:#fff;
+    color:#000;
 }
 .login-input{
     width:240px;
@@ -131,11 +131,14 @@ label{
     .login-head{
         font-size:24px;
     }
-    label{
+    .title{
         font-size:14px;
     }
 }
 @media screen and(max-width:320px){
+    .login-form{
+        padding:20px;
+    }
     .login-input{
         width:200px;
     }
