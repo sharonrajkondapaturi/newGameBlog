@@ -6,7 +6,7 @@
     padding:40px;
 }
 .wall{
-    background-image: url('https://images.hdqwalls.com/download/spiderman-ps4-pro-video-game-4k-8j-1440x900.jpg');
+    background-image: url('https://images6.alphacoders.com/132/1324657.jpeg');
     background-size: cover;
     min-height: 100vh;
 }
@@ -22,6 +22,7 @@
     font-weight: bold;
     padding-left: 8px;
     margin-top:5px;
+    margin-bottom: 5px;
 }
 .title-content{
     width:800px;
@@ -37,6 +38,7 @@
     border-radius:8px;
     font-weight: bold;
     margin-top:5px;
+    margin-bottom:5px;
 }
 .input-image{
     width:400px;
@@ -56,9 +58,10 @@ select{
     border-radius:10px;
 }
 label{
-    color:#000;
+    color:#f06807;
     font-weight: bold;
     margin-top: 8px;
+    margin-bottom:4px;
     font-size:18px;
 }
 .add-post-button{
@@ -71,7 +74,13 @@ label{
     font-weight: 510;
     cursor: pointer;
 }
-@media screen and (max-width:991px){
+.filled-error{
+    color:#f0163e;
+    font-size:14px;
+    font-weight:510;
+    margin-top:1px;
+}
+@media screen and (max-width:1279px){
     .title-content{
         width:500px;
     }

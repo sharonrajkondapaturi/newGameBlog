@@ -96,9 +96,9 @@ const Login = ()=>{
                 <input id = "password" type="password" placeholder='Enter password' onChange={onPassword} value={password} className='login-input'/>
                 {loading?onLoading():null}
                 <center>
+                {error===''?null:<p className='error'>{error}</p>}
                 <button className="login-button" type="submit">Login</button>
                 </center>
-                {error===''?null:<p className='error'>{error}</p>}
                 <Link to="http://localhost:3000/register" className='blink'>Are you a new user?</Link>
             </form>
         </div>

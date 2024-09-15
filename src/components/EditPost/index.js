@@ -106,7 +106,7 @@ const EditPost = ()=>{
         <form className='edit-post' onSubmit={onRender}>
             <label htmlFor='title'>Update Title {star()}</label>
             <textarea type="text" id = "title" className="title-text" value={title} onChange={onTitle}/>
-            {titleError?<p className='register-error'>* Title length should be minium 10</p>:null}
+            {titleError?<p className='filled-error'>* Title length should be minium 10</p>:null}
             <label htmlFor='genre' style={{marginTop:10}} onChange={onGenre}>Game Type Genre {star()}</label>
             <select value={genre} onChange={onGenre}>
                 <option value="Action">Action</option>
@@ -117,10 +117,10 @@ const EditPost = ()=>{
             </select>
             <label htmlFor='content'>Content {star()}</label>
             <textarea id = "content" value={content} className='title-content' onChange={onContent}/>
-            {contentError?<p className='register-error'>* Content length should be minium 100</p>:null}
+            {contentError?<p className='filled-error'>* Content length should be minium 100</p>:null}
             <label htmlFor="image" style={{marginTop:10}}>Update Image Url {star()}</label>
             <input id="image" value={image} className='input-image' onChange={onImage}/>
-            <label id="video" style={{marginTop:10}}>Update Video Url {star()}</label>
+            <label id="video" style={{marginTop:10}}>Update Video Url</label>
             <input htmlFor = "video" className='input-image' value={video} onChange={onVideo}/>
             {loading?onLoading():null}
             <button style={{marginTop:10}} type="submit" className='update-post-button'>Update Post</button>

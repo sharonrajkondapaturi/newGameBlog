@@ -73,6 +73,7 @@
     text-align: center;
     margin:10px;
     color: #f0163e;
+    font-size:15px;
 }
 @media screen and (max-width:991px) {
     .login-background{

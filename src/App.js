@@ -9,6 +9,7 @@ import Blog from './components/Blog';
 import EditPost from './components/EditPost'
 import NewPost from './components/NewPost'
 import ProtectedRoute from './components/ProtectedRoutes';
+import NotFound from './components/NotFound';
 import Context from './context/Context.js'
 import './App.css';
 import UserDetails from './components/UserDetails/index.js';
@@ -36,6 +37,7 @@ const App = ()=>{
           <Route path="/editpost/:id" element={<EditPost/>}/>
           <Route path="/userposts" element={<UserPosts/>}/>
       </Route>
+      <Route path="*" element={<NotFound/>}/>
     </Routes>
   </BrowserRouter>
   </Context.Provider>

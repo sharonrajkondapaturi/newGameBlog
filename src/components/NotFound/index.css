@@ -1,0 +1,43 @@
+.error-back{
+    background-image: url('https://www.sumydesigns.com/wp-content/uploads/2019/03/404-error.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.errorpage-head{
+    display: none;
+}
+.errorpage-para{
+    display: none;
+}
+.error-button{
+    margin-bottom:100px;
+    background-color: #366de3;
+    border:none;
+    padding:8px;
+    width:120px;
+    color:#fff;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+@media screen and (max-width:1279px) {
+    .error-back{
+        justify-content: center;
+        background-image: none;
+    }
+    .errorpage-head{
+        display: block;
+        font-size:32px;
+    }
+    .errorpage-para{
+        display: block;
+        font-size:24px;
+    }
+    .error-button{
+        margin-bottom: 0px;
+    }
+}
